@@ -126,22 +126,22 @@
     
     BRICK_MAPPING : .word BRICK_BLACK, BRICK_WHITE, BRICK_GRAY, BRICK_RED, BRICK_BLUE, BRICK_GREEN, BRICK_YELLOW, BRICK_ORANGE, BRICK_PURPLE, BRICK_PINK, BRICK_CYAN, BRICK_BROWN, BRICK_LIME
 
-    MENU_LAYOUT: .byte 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-                       0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+    MENU_LAYOUT: .byte 0x9, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0,
+                       0x0, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x0,
+                       0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
 
 ##############################################################################
 # Mutable Data
@@ -175,7 +175,7 @@
             lw $s0, 4($t0)
         after_input:
             # check the state boolean
-            jal draw_menu_page
+            jal draw_menu
             
             # 2a. Check for collisions
     	    # 2b. Update locations (paddle, ball)
@@ -189,22 +189,62 @@
         b game_loop
 
 
-    draw_menu_page:
-        # lets just draw one brick for now
-        la $t0, 0 # brick color enum
-        lw $t9, ADDR_DSPL # brick starting address
+    draw_menu:
+        # load the address of menu
+        li $t1, 0 # y value
+        li $t2, 0 # x value
+        draw_menu_loop:
+            beq $t1, 16, draw_menu_loop_y_end
+            draw_menu_loop_x:
+                beq $t2, 16, draw_menu_loop_x_end
+
+                # push saved variables
+                addi $sp, $sp, -4
+                sw $t1, 0($sp)
+                addi $sp, $sp, -4
+                sw $t2, 0($sp)
+
+                # draw the current brick
+                mult $t3, $t1, 16  # t3 = 16 *  y
+                mult $t4, $t3, 4 # t4 = 16 * 4 * y
+                add $t3, $t3, $t2 # t3 = 16 * y + x
+                add $t4, $t4, $t2 # t3 = 16 * y + x
+                mult $t3, $t3, 16 # t3 = 16 * 4 * y + 4 * x
+                mult $t4, $t4, 16 # t4 = 16 * 4 * 4 * y + 4 * x
+                la $t0, MENU_LAYOUT
+                add $t3, $t3, $t0 # t3 = ADDR + 16 * 4 * y + 4 * x
+                lw $t0, ADDR_DSPL
+                add $t4, $t4, $t0 # t3 = ADDR + 16 * 4 * y + 4 * x
+                
+                lb $t3, 0($t3) # t3 is the current color enum
+                
+                addi $sp, $sp, -4
+                sw $t4, 0($sp)
+                addi $sp, $sp, -4
+                sw $t3, 0($sp)
+                jal draw_brick
+                
+				# POP the previously saved variables
+                lw $t2, 0($sp)
+                addi $sp, $sp, 4
+                lw $t1, 0($sp)
+                addi $sp, $sp, 4
+                
+                addi $t2, $t2, 1
+                j draw_menu_loop_x
+            draw_menu_loop_x_end:
+                li $t2, 0
+                addi $t1, $t1, 1
+                j draw_brick_loop
+        draw_menu_loop_y_end:
+            li $t1, 0
         
-        addi $sp, $sp, -4
-        sw $t9, 0($sp)
-        addi $sp, $sp, -4
-        sw $t0, 0($sp)
-        j draw_brick
 
     draw_brick: # draw_brick(BRICK_COLOR_ENUM, DRAW_ADDR)
         # pop the argument from the stack
         # compute the brick color address from the offsets
         la $t9, BRICK_MAPPING
-        lw $t0, 0($sp)
+        lb $t0, 0($sp)
         addi $sp, $sp, 4
         mul $t0, $t0, 4
         add $t9, $t9, $t0
@@ -220,17 +260,18 @@
                 beq $t2, 4, end_x
 
                 # load the color into t6
-                mul $t5, $t1, 4 # t5 = y * 4
-                mul  $t5, $t5, 4 # t5 = y * 4 * 8
-                mul $t8, $t5, 32 # t8 = y * 4 * 8 * 15
-                mul $t6, $t2, 4 # t6 = x * 4
-                add $t8, $t8, $t6 # t8 = y * 4 * 8 * 15 + x * 4
-                add $t8, $t8, $t9 # t8 = ADDR + y * 4 * 8 * 15 + x * 4
-                add $t5, $t5, $t6 # t5 = y * 4 * 8 + x * 4
-                add $t5, $t5, $t0 # t5 = ADDR + y * 4 * 8 + x * 4
-                lw $t6, 0($t5)
-                # load the address into t6
-                sw $t6, 0($t8)
+                mul $t6, $t1, 16 
+                mul $t4, $t2, 4 # x * 4 * 4
+                add $t6, $t6, $t4
+                add $t6, $t6, $t0 # add the address of color
+                lw $t6, 0($t6)
+                # load the address into t5
+                mul $t5, $t1, 256 # t5 = y * 16 (width) * 4 (word size) * 4 (brick size)
+                mul $t4, $t2, 4 # x * 4 * 4
+                add $t5, $t5, $t4 # t5 = y * 64 + 4x
+                add $t5, $t5, $t9 # add the address of to print
+                # write into screen
+                sw $t6, 0($t5)
                 addi $t2, $t2, 1
                 j draw_brick_loop_x
             end_x:
@@ -239,6 +280,7 @@
                 j draw_brick_loop
         end_y:
             li $t1, 0
+            jr $ra
         
     exit:
         li $v0, 10              # terminate the program gracefully
