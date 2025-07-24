@@ -381,7 +381,7 @@
                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                        1, 12, 5, 4, 6, 7, 8, 9, 10, 11, 4, 5, 12, 1
 
-    O_BLOCK:.byte # top view
+    BLOCK_O:.byte # top view
                  1, 1, 0, 0,
                  1, 1, 0, 0,
                  0, 0, 0, 0,
@@ -401,7 +401,7 @@
                  1, 1, 0, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0
-    I_BLOCK:.byte # top view
+    BLOCK_I:.byte # top view
                  1, 0, 0, 0,
                  1, 0, 0, 0,
                  1, 0, 0, 0,
@@ -421,7 +421,7 @@
                  1, 0, 0, 0,
                  1, 0, 0, 0,
                  1, 0, 0, 0
-    S_BLOCK:.byte # top view
+    BLOCK_S:.byte # top view
                  1, 0, 0, 0,
                  1, 1, 0, 0,
                  0, 1, 0, 0,
@@ -441,7 +441,7 @@
                  1, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0
-    Z_BLOCK:.byte # top view
+    BLOCK_Z:.byte # top view
                  0, 1, 0, 0,
                  1, 1, 0, 0,
                  1, 0, 0, 0,
@@ -461,7 +461,7 @@
                  1, 1, 0, 0,
                  1, 0, 0, 0,
                  0, 0, 0, 0
-    L_BLOCK:.byte # top view
+    BLOCK_L:.byte # top view
                  1, 0, 0, 0,
                  1, 0, 0, 0,
                  1, 1, 0, 0,
@@ -481,8 +481,56 @@
                  0, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0
+    BLOCK_J:.byte # top view
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 1, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # left view
+                 1, 0, 0, 0,
+                 1, 1, 1, 0,
+                 0, 0, 0, 0,
+                 0, 0, 0, 0,
+                 # right view
+                 1, 1, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 0, 0,
+                 0, 0, 0, 0,
+                 # bottom view
+                 1, 1, 0, 0,
+                 1, 0, 0, 0,
+                 1, 0, 0, 0,
+                 0, 0, 0, 0
 
-                 
+    BLOCK_T:.byte # top view
+                 1, 1, 1, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # left view
+                 1, 0, 0, 0,
+                 1, 1, 0, 0,
+                 1, 0, 0, 0,
+                 0, 0, 0, 0,
+                 # right view
+                 0, 1, 0, 0,
+                 1, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # bottom view
+                 0, 1, 0, 0,
+                 1, 1, 1, 0,
+                 0, 0, 0, 0,
+                 0, 0, 0, 0
+    
+    BLOCK_MAPPING: .word BLOCK_O, # 0
+                         BLOCK_I, # 1
+                         BLOCK_S, # 2
+                         BLOCK_Z, # 3
+                         BLOCK_L, # 4
+                         BLOCK_J, # 5
+                         BLOCK_T  # 6
+
 ##############################################################################
 # Mutable Data
 ##############################################################################
@@ -503,6 +551,8 @@
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
 
+    BLOCK_LIST: .space 120 # a size of 10 block_structs (which are 10 bytes each)
+
 ##############################################################################
 # Code
 ##############################################################################
@@ -518,6 +568,7 @@
         
         li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
         li $s1, 0               # initialize s1 to be the current clock
+        jal add_block
     
     game_loop:
         game_loop_check_input:
@@ -738,7 +789,69 @@
         end_y:
             li $t1, 0
             jr $ra
+
+    # block_check_move(index in block_array) -> boolean
+    block_check_move:
+        # returns a boolean
+        
+    # function to generate a random block_struct to add into the BLOCK_LIST at the base-position of the game array
+    # add_block() -> void
+    add_block:
+        # BLOCK_STRUCT:
+        #     word block_base_ADDR ($t4)
+        #     byte block_type_ENUM ($t1)
+        #     byte brick_color_ENUM ($t2)
+        #     byte block_orientation_ENUM ($t3)
+
+        # find the current cleared area of the list
+        la $t5, BLOCK_LIST
+        addi $t7, $t5, 120 # size of a struct * 10
+        add_block_loop:
+            # check if this has a size of smaller than 10
+            beq $t5, $t7, add_block_end
+            # we have a current size of smaller than 10
+            lw $t6, 0($t5) # load word - which should be the block type address, and then check if this is equal to 0
+            beq $t6, 0 add_block_loop_end
+            addi $t5, $t5, 12 # size of a struct
+            j add_block_loop
+            
+        add_block_loop_end:
+            # store the base ADDRESS within the memory area
+            la $t0, GAME_LAYOUT
+            addi $t0, $t0, 24 # 24 is the offset from this that coresponds to top-left corner of the screen
+            sw $t0, 0($t5)
+            addi $t5, $t5, 4
+            # store the block_type_ENUM within the memory area
+            li $v0, 42
+            li $a0, 0
+            li $a1, 8
+            syscall
+            move $t0, $a0
+            sb $t0, 0($t5)
+            addi $t5, $t5, 1
+            # store the brick_type_ENUM within the memory area
+            li $v0, 42
+            li $a0, 0
+            li $a1, 13 
+            syscall
+            move $t0, $a0
+            sb $t0, 0($t5)
+            addi $t5, $t5, 1
+            # store the block_orientaiton enum into memory area
+            li $t0, 0
+            sb $t0, 0($t5)
+            addi $t5, $t5, 2
+            
+        add_block_end:
+            jr $ra
+
+
+        # get the 
+
+
+        
         
     exit:
         li $v0, 10              # terminate the program gracefully
         syscall
+
