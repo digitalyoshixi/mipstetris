@@ -1,0 +1,19 @@
+1. create all blocks, with their orientations:
+  OBLOCK : [ [1,1,0,0,
+              1,1,0,0,
+              0,0,0,0],
+              [1,1,0,0,
+              1,1,0,0,
+              0,0,0,0],
+              ....
+              ]
+
+2. Creaate a mapping list: blocksmap: [OBLOCK, JBLOCK, ...]
+
+create a blocksarray : [List of Block Structs]
+
+Block Struct:
+- byte: type
+- byte: color
+- byte: block_orientation
+- word: block_base_addr       <- the left-most address of this block, which is within the GAME_LAYOUT thing
