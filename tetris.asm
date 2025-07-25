@@ -877,8 +877,11 @@
             jr $ra
 
     # function to check if the projection map has the same color frequency as the original game layout map
+    # check_collisions() -> int
+    # - return 0 means all good
+    # - return non-zero means there is a collision error
     check_collisions:
-        li $t0, 0# this is the variable that is treated like a stack
+        li $t0, 0 # this is the variable that is treated like a stack
         la $t5, PROJECTION_MAP # address of the the left-most of the projeciton map
         la $t6, GAME_VOID # address of the left-most of the game map
         # double loop to check everything
@@ -890,8 +893,7 @@
                 beq $t2, 16, check_collisions_loop_end_x
         	    # BODY
                 mul $t7, $t1, 16 # t7 = screen-width * y + x
-                mul $t8, $t2, 1
-                add $t7, $t7, $t8
+                add $t7, $t7, $t2
                 # add the projection map byte
                 add $t8, $t7, $t5 # the current byte within the projection map
                 lb $t8 0($t8)
@@ -908,13 +910,10 @@
                 addi $t1, $t1, 1
                 j check_collisions_loop
         check_collisions_loop_end:
-            beq $t0, 0, check_collisions_end_true
-            check_collisions_end_false:
-                # push a bad thing onto the stack
-                jr $ra
-            check_collisions_end_true:
-                # push a good thing onto the stack
-                jr $ra
+            # if t0 = 0, we are good, if t0 != 0, then we have failed
+            # push $t0 onto the stack
+            addi $sp, $sp, -4
+            sw $t0, 0($sp)
     
     exit:
         li $v0, 10              # terminate the program gracefully
