@@ -554,29 +554,6 @@
                        28, 30, 17, 31, 31, 0, 0, 0, 0, 0, 0, 0,0,0,
                        0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
                        0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
-
-    PROJECTION_MAP: .byte   
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                       28, 30, 17, 31, 31, 0, 0, 0, 0, 0, 0, 0,0,0,
-                       0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
-                       0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
-                       
     BLOCK_LIST: .space 80 # a size of 10 block_structs (which are 10 bytes each)
 
 ##############################################################################
@@ -595,7 +572,9 @@
         li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
         li $s1, 0               # initialize s1 to be the current clock
         jal add_block
-        jal check_collisions
+        jal add_block
+        jal add_block
+        jal add_block
     
     game_loop:
         game_loop_check_input:
@@ -636,7 +615,84 @@
             j game_loop_draw
 
             game_loop_game_update_gravity:
-                
+                li $t0, 0
+                game_loop_game_update_gravity_loop:
+                    # loop through the entire brick_list
+                    beq $t0, 10, game_loop_game_update_gravity_end # 10 total bricks
+                    mul $t1, $t0, 8
+                    la $t2, BLOCK_LIST
+                    add $t1, $t1, $t2
+                    lw $t1, 0($t1)
+                    bne $t1, 0, game_loop_game_update_gravity_block # there is a actual block here
+                    j game_loop_game_update_gravity_loop_end
+                    game_loop_game_update_gravity_block:
+                        # t0 stores the current index of the list
+                        # t2 stores the current address of the STRUCT
+                        mul $t3, $t0, 8 
+                        add $t2, $t2, $t3
+                        lb $t1, 4($t2) # get the block_ENUM
+                        la $t3, BLOCK_MAPPING
+                        mul $t1, $t1, 4 # change to wordsize
+                        add $t1, $t1, $t3 
+                        lw $t1, 0($t1) # load the address of the block_orientations list
+                        lb $t3, 6($t2) # load the orientation
+                        mul $t3, $t3, 16
+                        add $t1, $t1, $t3 # t1 stores the address of the current orientation of the block
+                        lw $t3, 0($t2) # load the base address
+                        
+                        # now we run a 2d loop through all 4x4 of the orientation matrix
+                        li $t4, 0
+                        li $t5, 0
+                        game_loop_game_update_gravity_block_loop:
+                            beq $t4, 4, game_loop_game_update_gravity_block_loop_end_y
+                            game_loop_game_update_gravity_block_loop_x:
+                                beq $t5, 4, game_loop_game_update_gravity_block_loop_end_x
+                				# BODY
+                                mult $t6, $t4, 4
+                                add $t6, $t6, $t5
+                                add $t6, $t6, $t3 # t6 is the current cell of the orientation matrix
+                                lb $t6, 0($t6)
+                                # check if its 1, if it if, then we check the bottom-more one
+                                beq $t6, 1, game_loop_game_update_gravity_block_loop_x_cell_1
+                                j game_loop_game_update_gravity_block_loop_x_end
+                                
+                                # if the current is 1
+                                game_loop_game_update_gravity_block_loop_x_cell_1:
+                                    # first check if this is the 4th row
+                                    beq $t4, 3, game_loop_game_update_gravity_block_loop_check_grid_layout
+                                    # if not, then we check if there is another 1 below us
+                                    mult $t6, $t4, 4
+                                    addi $t6, $t6, 4
+                                    add $t6, $t6, $t5
+                                    add $t6, $t6, $t3 # t6 is the current cell of the orientation matrix
+                                    lb $t6, 0($t6)
+                                    beq $t6, 1, 
+                                    
+                                    game_loop_game_update_gravity_block_loop_check_grid_layout:
+                                
+                                
+                                game_loop_game_update_gravity_block_loop_x_end:
+                                    addi $t5, $t5, 1
+                                    j game_loop_game_update_gravity_block_loop_x
+                            game_loop_game_update_gravity_block_loop_end_x:
+                                li $t5, 0
+                                addi $t4, $t4, 1
+                                j game_loop_game_update_gravity_block_loop
+                        game_loop_game_update_gravity_block_loop_end_y:
+                            # we have passed all the checks, and everything below all the 1s are 0
+                            # move everything down
+                            li $t4, 0
+                            j game_loop_game_update_gravity_loop_end
+                        
+
+                        
+                    
+                    game_loop_game_update_gravity_loop_end:
+                        addi $t0, $t0, 1 # adding one to the current counter
+                        j game_loop_game_update_gravity_loop
+                        
+                game_loop_game_update_gravity_end:
+                    # something
             game_loop_draw:
 
 
@@ -876,45 +932,6 @@
         add_block_end:
             jr $ra
 
-    # function to check if the projection map has the same color frequency as the original game layout map
-    check_collisions:
-        li $t0, 0# this is the variable that is treated like a stack
-        la $t5, PROJECTION_MAP # address of the the left-most of the projeciton map
-        la $t6, GAME_VOID # address of the left-most of the game map
-        # double loop to check everything
-        li $t1, 0 # y
-        li $t2, 0 # x
-        check_collisions_loop:
-            beq $t1, 16, check_collisions_loop_end
-            check_collisions_loop_x:
-                beq $t2, 16, check_collisions_loop_end_x
-        	    # BODY
-                mul $t7, $t1, 16 # t7 = screen-width * y + x
-                mul $t8, $t2, 1
-                add $t7, $t7, $t8
-                # add the projection map byte
-                add $t8, $t7, $t5 # the current byte within the projection map
-                lb $t8 0($t8)
-                add $t0, $t0, $t8
-                # subtract the game map byte
-                add $t8, $t7, $t6 # the current byte within the projection map
-                lb $t8 0($t8)
-                sub $t0, $t0, $t8
-                
-                addi $t2, $t2, 1
-                j check_collisions_loop_x
-            check_collisions_loop_end_x:
-                li $t2, 0
-                addi $t1, $t1, 1
-                j check_collisions_loop
-        check_collisions_loop_end:
-            beq $t0, 0, check_collisions_end_true
-            check_collisions_end_false:
-                # push a bad thing onto the stack
-                jr $ra
-            check_collisions_end_true:
-                # push a good thing onto the stack
-                jr $ra
     
     exit:
         li $v0, 10              # terminate the program gracefully

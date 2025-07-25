@@ -1,0 +1,6 @@
+projection map method for collision checks:
+
+projection map is the copy of the current map of the game state.
+whenever we want to change the drawing, we make changes to the projection map.
+Then, we check if the # of colors in the projection map is equal to the # of colors within the original map
+if so, then we have a perfect thing that we can move and allow it.
