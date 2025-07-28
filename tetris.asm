@@ -382,145 +382,145 @@
                        1, 12, 5, 4, 6, 7, 8, 9, 10, 11, 4, 5, 12, 1
 
     BLOCK_O:.byte # top view
-                 1, 1, 0, 0,
-                 1, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
                  # left view
-                 1, 1, 0, 0,
-                 1, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
                  # right view
-                 1, 1, 0, 0,
-                 1, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
                  # bottom view
-                 1, 1, 0, 0,
-                 1, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0
     BLOCK_I:.byte # top view
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
+                 0, 0, 0, 0,
+                 1, 1, 1, 1,
+                 0, 0, 0, 0,
+                 0, 0, 0, 0,
                  # left view
-                 1, 1, 1, 1,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
                  # right view
-                 1, 1, 1, 1,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
                  # bottom view
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 1, 0, 0, 0
+                 0, 0, 0, 0,
+                 0, 0, 0, 0,
+                 1, 1, 1, 1,
+                 0, 0, 0, 0
     BLOCK_S:.byte # top view
-                 1, 0, 0, 0,
+                 0, 1, 1, 0,
                  1, 1, 0, 0,
-                 0, 1, 0, 0,
+                 0, 0, 0, 0,
                  0, 0, 0, 0,
                  # left view
-                 0, 1, 1, 0,
-                 1, 1, 0, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # right view
-                 0, 1, 1, 0,
-                 1, 1, 0, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # bottom view
                  1, 0, 0, 0,
                  1, 1, 0, 0,
                  0, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # right view
+                 0, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 0, 0,
+                 # bottom view
+                 0, 0, 0, 0,
+                 0, 1, 1, 0,
+                 1, 1, 0, 0,
                  0, 0, 0, 0
     BLOCK_Z:.byte # top view
-                 0, 1, 0, 0,
                  1, 1, 0, 0,
-                 1, 0, 0, 0,
+                 0, 1, 1, 0,
+                 0, 0, 0, 0,
                  0, 0, 0, 0,
                  # left view
-                 1, 1, 0, 0,
                  0, 1, 1, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # right view
-                 1, 1, 0, 0,
-                 0, 1, 1, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # bottom view
-                 0, 1, 0, 0,
                  1, 1, 0, 0,
                  1, 0, 0, 0,
+                 0, 0, 0, 0,
+                 # right view
+                 0, 0, 1, 0,
+                 0, 1, 1, 0,
+                 0, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # bottom view
+                 0, 0, 0, 0,
+                 1, 1, 0, 0,
+                 0, 1, 1, 0,
                  0, 0, 0, 0
     BLOCK_L:.byte # top view
                  1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 1, 1, 0, 0,
+                 1, 1, 1, 0,
+                 0, 0, 0, 0,
                  0, 0, 0, 0,
                  # left view
-                 1, 1, 1, 0,
-                 1, 0, 0, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # right view
-                 0, 0, 1, 0,
-                 1, 1, 1, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # bottom view
                  1, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # right view
+                 1, 0, 0, 0,
+                 1, 0, 0, 0,
+                 1, 1, 0, 0,
+                 0, 0, 0, 0,
+                 # bottom view
+                 0, 0, 0, 0,
+                 1, 1, 1, 0,
+                 1, 0, 0, 0,
                  0, 0, 0, 0
     BLOCK_J:.byte # top view
-                 0, 1, 0, 0,
-                 0, 1, 0, 0,
-                 1, 1, 0, 0,
+                 1, 0, 0, 0,
+                 1, 1, 1, 0,
+                 0, 0, 0, 0,
                  0, 0, 0, 0,
                  # left view
-                 1, 0, 0, 0,
-                 1, 1, 1, 0,
-                 0, 0, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 1, 1, 0, 0,
                  0, 0, 0, 0,
                  # right view
-                 1, 1, 1, 0,
-                 0, 0, 1, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
-                 # bottom view
                  1, 1, 0, 0,
                  1, 0, 0, 0,
                  1, 0, 0, 0,
+                 0, 0, 0, 0,
+                 # bottom view
+                 0, 0, 0, 0,
+                 1, 1, 1, 0,
+                 0, 0, 1, 0,
                  0, 0, 0, 0
 
     BLOCK_T:.byte # top view
-                 1, 1, 1, 0,
                  0, 1, 0, 0,
+                 1, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
                  # left view
-                 1, 0, 0, 0,
+                 0, 1, 0, 0,
                  1, 1, 0, 0,
-                 1, 0, 0, 0,
+                 0, 1, 0, 0,
                  0, 0, 0, 0,
                  # right view
                  0, 1, 0, 0,
-                 1, 1, 0, 0,
+                 0, 1, 1, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0,
                  # bottom view
-                 0, 1, 0, 0,
-                 1, 1, 1, 0,
                  0, 0, 0, 0,
+                 1, 1, 1, 0,
+                 0, 1, 0, 0,
                  0, 0, 0, 0
     
     BLOCK_MAPPING: .word BLOCK_O, # 0
@@ -587,14 +587,15 @@
 
     # Run the Tetris game.
     main:
-        lw $t0, ADDR_DSPL       # $t0 = base address for display
-        sw $t1, 0($t0)          # paint the first unit (i.e., top-left) red
-        sw $t2, 4($t0)          # paint the second unit on the first row green
-        sw $t3, 128($t0)        # paint the first unit on the second row blue
-        
         li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
         li $s1, 0               # initialize s1 to be the current clock
+        li $s2, 0               # initialize s2 to be the index of the current moving block
         jal add_block
+        jal projection_map_copy
+        jal find_expected_gain_from_gravity
+        # pop from the stack
+        lw $t0, 0($sp)
+        addi $sp, $sp, 4
         jal check_collisions
     
     game_loop:
@@ -636,6 +637,9 @@
             j game_loop_draw
 
             game_loop_game_update_gravity:
+                li $s1, 0
+                jal update_gravity
+                
                 
             game_loop_draw:
 
@@ -836,6 +840,7 @@
         # find the current cleared area of the list
         la $t5, BLOCK_LIST
         addi $t7, $t5, 80 # size of a struct * 10
+        li $s2, 0 # setup the current index as 0
         add_block_loop:
             # check if this has a size of smaller than 10
             beq $t5, $t7, add_block_end
@@ -843,13 +848,14 @@
             lw $t6, 0($t5) # load word - which should be the block type address, and then check if this is equal to 0
             beq $t6, 0 add_block_loop_end
             addi $t5, $t5, 8 # size of a struct
+            addi $s2, $s2, 1 # increment the current index  global
             j add_block_loop
             
         add_block_loop_end:
             # store the base ADDRESS within the memory area
             la $t0, GAME_VOID # store the void, so that you are 4 pixels above the actual drawing canvas
             #la $t0, GAME_LAYOUT
-            addi $t0, $t0, 24 # 24 is the offset from this that coresponds to top-left corner of the screen
+            addi $t0, $t0, 1 # 4 is the offset from this that coresponds to top-left corner of the screen
             sw $t0, 0($t5)
             addi $t5, $t5, 4
             # store the block_type_ENUM within the memory area
@@ -890,9 +896,9 @@
         check_collisions_loop:
             beq $t1, 16, check_collisions_loop_end
             check_collisions_loop_x:
-                beq $t2, 16, check_collisions_loop_end_x
+                beq $t2, 14, check_collisions_loop_end_x
         	    # BODY
-                mul $t7, $t1, 16 # t7 = screen-width * y + x
+                mul $t7, $t1, 14 # t7 = screen-width * y + x
                 add $t7, $t7, $t2
                 # add the projection map byte
                 add $t8, $t7, $t5 # the current byte within the projection map
@@ -914,6 +920,98 @@
             # push $t0 onto the stack
             addi $sp, $sp, -4
             sw $t0, 0($sp)
+            
+    # function that copies all items within the game_map into projection map
+    projection_map_copy:
+        li $t1, 0 # y
+        li $t2, 0 # x
+        projeciton_map_copy_loop:
+            beq $t1, 16, projeciton_map_copy_loop_end
+            projeciton_map_copy_loop_x:
+                # copy the current byte inside game map into projection map
+                la $t0, GAME_VOID
+                la $t4, PROJECTION_MAP
+                mul $t3, $t1, 14
+                add $t3, $t3, $t2
+                add $t0, $t3, $t0
+                add $t4, $t3, $t4
+                lb $t0, 0($t0)
+                sb $t0, 0($t4)
+        		# end
+                addi $t2, $t2, 1
+                blt $t2, 14, projeciton_map_copy_loop_x
+            projeciton_map_copy_loop_end_x:
+                li $t2, 0
+                addi $t1, $t1, 1
+                j projeciton_map_copy_loop
+        projeciton_map_copy_loop_end:
+            li $t1, 0
+            jr $ra
+
+    # iterate through each
+    find_expected_gain_from_gravity:
+        # get the current block fom index
+        mul $t0, $s2, 8
+        la $t1, BLOCK_LIST
+        add $t0, $t0, $t1
+        # t0 : stores address of the block in the block list
+        # t1 : stores BASE_ADDR
+        # t2 : stores brick color
+        # t3 : stores block orientation address
+        # t4 : the sum the current change
+        lw $t1, 0($t0)
+        lb $t2, 5($t0)
+        lb $t3, 4($t0)
+        la $t4, BLOCK_MAPPING
+        mul $t5, $t3, 4
+        add $t4, $t4, $t5
+        lw $t4, 0($t4)
+        lb $t3, 6($t0)
+        mul $t3, $t3, 16 # size of block_orientation matrix
+        add $t3, $t4, $t3
+        li $t4, 0 # sum of current change
+        # 2d loop to calculate the current change sum
+        li $t5, 0 # y
+        li $t6, 0 # x
+        find_expected_gain_from_gravity_loop:
+            beq $t5, 4, find_expected_gain_from_gravity_loop_end
+            find_expected_gain_from_gravity_loop_x:
+        		# BODY
+
+                # check if the current address offsets are greater than GAME_ADDR
+                mult $t7, $t5, 14  # GAME_ADDR width
+                add $t7, $t7, $t6
+                add $t7, $t7, $t1
+                la $t8, GAME_LAYOUT
+                bge $t7, $t8, find_expected_gain_from_gravity_loop_end
+                # check if we are at the row right before the game_addr
+                addi $t7, $t7, 14
+                ble $t7, $t8, find_expected_gain_from_gravity_loop_x_end
+                # check if current item inside the orientation is equal to 1
+                mult $t7, $t5, 4
+                add $t7, $t7, $t6
+                add $t7, $t7, $t3
+                lb $t7, 0($t7)
+                beq $t7, 0, find_expected_gain_from_gravity_loop_x_end
+                increment_change:
+                    add $t4, $t4, $t2
+        		# END
+                find_expected_gain_from_gravity_loop_x_end:
+                    addi $t6, $t6, 1
+                    blt $t6, 4 find_expected_gain_from_gravity_loop_x
+            find_expected_gain_from_gravity_loop_end_x:
+                li $t6, 0
+                addi $t5, $t5, 1
+                j find_expected_gain_from_gravity_loop_x
+        find_expected_gain_from_gravity_loop_end:
+            li $t5, 0
+            # push the value of $t4 onto the stack
+            addi $sp, $sp, -4
+            sw $t4, 0($sp)
+            jr $ra
+            
+    update_gravity:
+        
     
     exit:
         li $v0, 10              # terminate the program gracefully
