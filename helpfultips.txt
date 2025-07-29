@@ -1,0 +1,10 @@
+BLOCK_STRUCT:
+    word block_BASE_ADDR_offset (0-3)
+    byte block_type_ENUM (4)
+    byte brick_color_ENUM (5)
+    byte block_orientation_ENUM (6)
+
+PROJECTION_MAP: 0x10011a6c
+BLOCK_CURRENT: 0x10011b84
+GAME_VOID: 0x10011954
+GAME_LAYOUT: 0x1001198c
