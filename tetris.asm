@@ -577,8 +577,8 @@
                        0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
                        0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
                        
-    BLOCK_CURRENT: .space 4 # a size of 2 block_structs (which are 4 bytes each)
-    BLOCK_HOLD: .space 4 # a size of 2 block_structs (which are 4 bytes each)
+    BLOCK_CURRENT: .space 8 # a size of BLOCK STRUCT (which are 8 bytes each)
+    BLOCK_HOLD: .space 8 # a size of BLOCIK STRUCT are 8 bytes each)
 
 ##############################################################################
 # Code
@@ -822,7 +822,7 @@
     # add_block() -> void
     add_block:
         # BLOCK_STRUCT:
-        #     byte block_BASE_ADDR_offset 
+        #     word block_BASE_ADDR_offset 
         #     byte block_type_ENUM
         #     byte brick_color_ENUM
         #     byte block_orientation_ENUM
@@ -832,11 +832,10 @@
         addi $sp, $sp, -4
         sw $ra, 0($sp)
 
-        # find the current cleared area of the list
         la $t5, BLOCK_CURRENT
         li $t0, 1 # 1 is the offset from this that coresponds to top-left corner of the screen
         sw $t0, 0($t5)
-        addi $t5, $t5, 1
+        addi $t5, $t5, 4
         # store the block_type_ENUM within the memory area
         li $v0, 42
         li $a0, 0
@@ -988,7 +987,7 @@
 
         # erase the current block (zero out the current block)
         la $t0, BLOCK_CURRENT
-        lb $t1, 0($t0) 
+        lw $t1, 0($t0) 
         la $t0, PROJECTION_MAP
         add $t0, $t0, $t1 # add the offest
         # get color
@@ -1003,9 +1002,9 @@
         # draw the current block
         la $t0, BLOCK_CURRENT
         # get color
-        lb $t3, 2($t0)
+        lb $t3, 5($t0)
         # compute offset
-        lb $t1, 0($t0) 
+        lw $t1, 0($t0) 
         addi $t1, $t1, 14 # game-width
         la $t0, PROJECTION_MAP
         add $t0, $t0, $t1 # add the offest
@@ -1026,7 +1025,7 @@
         # if they are equal, update the offest value in the structure and then update game aswell
         # overdraw the current block with black
         la $t0, BLOCK_CURRENT
-        lb $t1, 0($t0)
+        lw $t1, 0($t0)
         li $t2, 0
         la $t0, GAME_VOID
         add $t1, $t1, $t0
@@ -1038,10 +1037,10 @@
         
         # store the new value as the next offset
         la $t0, BLOCK_CURRENT
-        lb $t2, 2($t0)
-        lb $t1, 0($t0)
+        lb $t2, 5($t0)
+        lw $t1, 0($t0)
         addi $t1, $t1, 14
-        sb $t1, 0($t0)
+        sw $t1, 0($t0)
         
         # draw the game
         la $t0, GAME_VOID
@@ -1070,12 +1069,13 @@
         
         la $t0, BLOCK_CURRENT
         # get orientation
-        lb $t2, 1($t0)
+        lb $t2, 4($t0)
         la $t3, BLOCK_MAPPING
         mul $t2, $t2, 4
         add $t2, $t3, $t2
         lw $t2, 0($t2)
-        lb $t3, 3($t0)
+        # block orientation enum
+        lb $t3, 6($t0)
         mul $t3, $t3, 16
         add $t2, $t2, $t3
         move $t3, $t4
