@@ -534,17 +534,17 @@
 ##############################################################################
 # Mutable Data
 ##############################################################################
-    GAME_VOID: .byte   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    GAME_LAYOUT: .byte 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+    GAME_VOID: .byte   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    GAME_LAYOUT: .byte 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 28, 26, 32, 31,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 33, 30, 30,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 20, 27, 24, 16,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
@@ -556,17 +556,17 @@
                        0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
 
     PROJECTION_MAP: .byte   
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 28, 26, 32, 31,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 33, 30, 30,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 20, 27, 24, 16,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
@@ -577,7 +577,8 @@
                        0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
                        0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
                        
-    BLOCK_LIST: .space 80 # a size of 10 block_structs (which are 10 bytes each)
+    BLOCK_CURRENT: .space 4 # a size of 2 block_structs (which are 4 bytes each)
+    BLOCK_HOLD: .space 4 # a size of 2 block_structs (which are 4 bytes each)
 
 ##############################################################################
 # Code
@@ -589,14 +590,8 @@
     main:
         li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
         li $s1, 0               # initialize s1 to be the current clock
-        li $s2, 0               # initialize s2 to be the index of the current moving block
         jal add_block
         jal projection_map_copy
-        jal find_expected_gain_from_gravity
-        # pop from the stack
-        lw $t0, 0($sp)
-        addi $sp, $sp, 4
-        jal check_collisions
     
     game_loop:
         game_loop_check_input:
@@ -638,8 +633,7 @@
 
             game_loop_game_update_gravity:
                 li $s1, 0
-                jal update_gravity
-                
+                jal update_block_gravity
                 
             game_loop_draw:
 
@@ -824,63 +818,94 @@
             li $t1, 0
             jr $ra
 
-    # block_check_move(index in block_array) -> boolean
-    collision_check:
-        # returns a boolean
-        
-    # function to generate a random block_struct to add into the BLOCK_LIST at the base-position of the game array
+    # function to generate a random block_struct to add into the BLOCK_CURRENT at the base-position of the game array
     # add_block() -> void
     add_block:
         # BLOCK_STRUCT:
-        #     word block_base_ADDR ($t4)
-        #     byte block_type_ENUM ($t1)
-        #     byte brick_color_ENUM ($t2)
-        #     byte block_orientation_ENUM ($t3)
+        #     byte block_BASE_ADDR_offset 
+        #     byte block_type_ENUM
+        #     byte brick_color_ENUM
+        #     byte block_orientation_ENUM
+
+        # lets store the return address
+        # push $t0 onto the stack
+        addi $sp, $sp, -4
+        sw $ra, 0($sp)
 
         # find the current cleared area of the list
-        la $t5, BLOCK_LIST
-        addi $t7, $t5, 80 # size of a struct * 10
-        li $s2, 0 # setup the current index as 0
+        la $t5, BLOCK_CURRENT
+        li $t0, 1 # 1 is the offset from this that coresponds to top-left corner of the screen
+        sw $t0, 0($t5)
+        addi $t5, $t5, 1
+        # store the block_type_ENUM within the memory area
+        li $v0, 42
+        li $a0, 0
+        li $a1, 7 # there are 7 blocks in total
+        syscall
+        move $t0, $a0
+        sb $t0, 0($t5)
+        addi $t5, $t5, 1
+        # store the brick_type_ENUM within the memory area
+        li $v0, 42
+        li $a0, 0
+        li $a1, 11
+        syscall
+        move $t0, $a0
+        addi $t0, $t0, 2 # to prevent black or white color
+        move $t6, $t0
+        sb $t0, 0($t5)
+        addi $t5, $t5, 1
+        # store the block_orientaiton enum into memory area
+        li $t0, 0
+        sb $t0, 0($t5)
+        addi $t5, $t5, 2
+
+        # we want to draw this block to the screens now. lets first setup a 2d loop to check if our drawing void is 100$ clear.
+        la $t0, GAME_VOID
+        addi $t0, $t0, 1 # our offset
+        li $t1, 0 # y
+        li $t2, 0 # x
         add_block_loop:
-            # check if this has a size of smaller than 10
-            beq $t5, $t7, add_block_end
-            # we have a current size of smaller than 10
-            lw $t6, 0($t5) # load word - which should be the block type address, and then check if this is equal to 0
-            beq $t6, 0 add_block_loop_end
-            addi $t5, $t5, 8 # size of a struct
-            addi $s2, $s2, 1 # increment the current index  global
-            j add_block_loop
-            
+            beq $t1, 4, add_block_loop_end
+            add_block_loop_x:
+        		# BODY
+        		mul $t3, $t1, 14
+                add $t3, $t3, $t2
+                add $t3, $t3, $t0
+                lb $t3, 0($t3)
+                bne $t3, 0, exit # game over
+        		# END
+                add_block_loop_x_end:
+                    addi $t2, $t2, 1
+                    blt $t2, 4 add_block_loop_x
+            add_block_loop_end_x:
+                li $t2, 0
+                addi $t1, $t1, 1
+                j add_block_loop
         add_block_loop_end:
-            # store the base ADDRESS within the memory area
-            la $t0, GAME_VOID # store the void, so that you are 4 pixels above the actual drawing canvas
-            #la $t0, GAME_LAYOUT
-            addi $t0, $t0, 1 # 4 is the offset from this that coresponds to top-left corner of the screen
-            sw $t0, 0($t5)
-            addi $t5, $t5, 4
-            # store the block_type_ENUM within the memory area
-            li $v0, 42
-            li $a0, 0
-            li $a1, 7 # there are 7 blocks in total
-            syscall
-            move $t0, $a0
-            sb $t0, 0($t5)
-            addi $t5, $t5, 1
-            # store the brick_type_ENUM within the memory area
-            li $v0, 42
-            li $a0, 0
-            li $a1, 13 
-            syscall
-            move $t0, $a0
-            sb $t0, 0($t5)
-            addi $t5, $t5, 1
-            # store the block_orientaiton enum into memory area
-            li $t0, 0
-            sb $t0, 0($t5)
-            addi $t5, $t5, 2
-            
-        add_block_end:
-            jr $ra
+            li $t1, 0
+        # if we dont exit, then lets draw to game screen
+        addi $sp, $sp, -4
+        sw $t0, 0($sp)
+        addi $sp, $sp, -4
+        sw $t6, 0($sp)
+        jal draw_block
+        # lets also draw to projection map
+        la $t0, PROJECTION_MAP
+        addi $sp, $sp, -4
+        sw $t0, 0($sp)
+        addi $sp, $sp, -4
+        sw $t6, 0($sp)
+        jal draw_block
+        
+        # pop return address
+        lw $t0, 0($sp)
+        addi $sp, $sp, 4
+        jr $t0
+    
+    # swap_block() -> void
+    # this function changes the list order of the blocks inside of it. Used when the user switches with X to swap HOLD and current
+    swap_block:
 
     # function to check if the projection map has the same color frequency as the original game layout map
     # check_collisions() -> int
@@ -920,7 +945,8 @@
             # push $t0 onto the stack
             addi $sp, $sp, -4
             sw $t0, 0($sp)
-            
+    
+    # projection_map_copy() -> void
     # function that copies all items within the game_map into projection map
     projection_map_copy:
         li $t1, 0 # y
@@ -948,70 +974,148 @@
             li $t1, 0
             jr $ra
 
-    # iterate through each
-    find_expected_gain_from_gravity:
-        # get the current block fom index
-        mul $t0, $s2, 8
-        la $t1, BLOCK_LIST
-        add $t0, $t0, $t1
-        # t0 : stores address of the block in the block list
-        # t1 : stores BASE_ADDR
-        # t2 : stores brick color
-        # t3 : stores block orientation address
-        # t4 : the sum the current change
-        lw $t1, 0($t0)
-        lb $t2, 5($t0)
-        lb $t3, 4($t0)
-        la $t4, BLOCK_MAPPING
-        mul $t5, $t3, 4
-        add $t4, $t4, $t5
-        lw $t4, 0($t4)
-        lb $t3, 6($t0)
-        mul $t3, $t3, 16 # size of block_orientation matrix
-        add $t3, $t4, $t3
-        li $t4, 0 # sum of current change
-        # 2d loop to calculate the current change sum
-        li $t5, 0 # y
-        li $t6, 0 # x
-        find_expected_gain_from_gravity_loop:
-            beq $t5, 4, find_expected_gain_from_gravity_loop_end
-            find_expected_gain_from_gravity_loop_x:
-        		# BODY
 
-                # check if the current address offsets are greater than GAME_ADDR
-                mult $t7, $t5, 14  # GAME_ADDR width
-                add $t7, $t7, $t6
-                add $t7, $t7, $t1
-                la $t8, GAME_LAYOUT
-                bge $t7, $t8, find_expected_gain_from_gravity_loop_end
-                # check if we are at the row right before the game_addr
-                addi $t7, $t7, 14
-                ble $t7, $t8, find_expected_gain_from_gravity_loop_x_end
-                # check if current item inside the orientation is equal to 1
-                mult $t7, $t5, 4
-                add $t7, $t7, $t6
-                add $t7, $t7, $t3
-                lb $t7, 0($t7)
-                beq $t7, 0, find_expected_gain_from_gravity_loop_x_end
-                increment_change:
-                    add $t4, $t4, $t2
-        		# END
-                find_expected_gain_from_gravity_loop_x_end:
-                    addi $t6, $t6, 1
-                    blt $t6, 4 find_expected_gain_from_gravity_loop_x
-            find_expected_gain_from_gravity_loop_end_x:
-                li $t6, 0
-                addi $t5, $t5, 1
-                j find_expected_gain_from_gravity_loop_x
-        find_expected_gain_from_gravity_loop_end:
-            li $t5, 0
-            # push the value of $t4 onto the stack
-            addi $sp, $sp, -4
-            sw $t4, 0($sp)
-            jr $ra
-            
-    update_gravity:
         
+    # update_block_gravity() -> void
+    # this is a function that checks if the current block moving downwards will affect collisions, it updates projectionmap, checks for collisions, if not then it updates game void and game layout
+    update_block_gravity:
+        # push $ra onto the stack
+        addi $sp, $sp, -4
+        sw $ra, 0($sp)
+
+        # copy the current game
+        jal projection_map_copy
+
+        # erase the current block (zero out the current block)
+        la $t0, BLOCK_CURRENT
+        lb $t1, 0($t0) 
+        la $t0, PROJECTION_MAP
+        add $t0, $t0, $t1 # add the offest
+        # get color
+        li $t3, 0
+        # directly draw to projection map
+        addi $sp, $sp, -4
+        sw $t0, 0($sp)
+        addi $sp, $sp, -4
+        sw $t3, 0($sp)
+        jal draw_block
+        
+        # draw the current block
+        la $t0, BLOCK_CURRENT
+        # get color
+        lb $t3, 2($t0)
+        # compute offset
+        lb $t1, 0($t0) 
+        addi $t1, $t1, 14 # game-width
+        la $t0, PROJECTION_MAP
+        add $t0, $t0, $t1 # add the offest
+        # directly draw to projection map
+        addi $sp, $sp, -4
+        sw $t0, 0($sp)
+        addi $sp, $sp, -4
+        sw $t3, 0($sp)
+        jal draw_block
+
+        jal check_collisions
+        # pop the return value
+        lw $t0, 0($sp)
+        addi $sp, $sp, 4
+
+        # check if collisions are none
+        bne $t0, 0, update_block_gravity_end
+        # if they are equal, update the offest value in the structure and then update game aswell
+        # overdraw the current block with black
+        la $t0, BLOCK_CURRENT
+        lb $t1, 0($t0)
+        li $t2, 0
+        la $t0, GAME_VOID
+        add $t1, $t1, $t0
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        
+        # store the new value as the next offset
+        la $t0, BLOCK_CURRENT
+        lb $t2, 2($t0)
+        lb $t1, 0($t0)
+        addi $t1, $t1, 14
+        sb $t1, 0($t0)
+        
+        # draw the game
+        la $t0, GAME_VOID
+        add $t1, $t1, $t0
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        
+
+        update_block_gravity_end:
+            # pop from the stack to return
+            lw $t0, 0($sp)
+            addi $sp, $sp, 4
+            jr $t0
+        
+    # draw_block(BASE_ADDR, COLOR) -> void
+    draw_block:
+        # pop from the stack
+        lw $t4, 0($sp)
+        addi $sp, $sp, 4
+        # pop from the stack
+        lw $t1, 0($sp)
+        addi $sp, $sp, 4
+        
+        la $t0, BLOCK_CURRENT
+        # get orientation
+        lb $t2, 1($t0)
+        la $t3, BLOCK_MAPPING
+        mul $t2, $t2, 4
+        add $t2, $t3, $t2
+        lw $t2, 0($t2)
+        lb $t3, 3($t0)
+        mul $t3, $t3, 16
+        add $t2, $t2, $t3
+        move $t3, $t4
+
+        li $t4, 0 # y
+        li $t5, 0 # x
+        
+        draw_block_loop:
+            beq $t4, 4, draw_block_loop_end
+            draw_block_loop_x:
+        		# BODY
+                mul $t6, $t4, 4
+                add $t6, $t6, $t5
+                add $t6, $t6, $t2
+                lb $t6, 0($t6)
+                beq $t6, 0, draw_block_loop_x_end
+                # of not, then you are going to draw!
+                mul $t6, $t4, 14
+                add $t6, $t6, $t5
+                add $t6, $t6, $t1
+                sb $t3 0($t6)
+
+                draw_block_loop_x_end:
+        		    # END
+                    addi $t5, $t5, 1
+                    blt $t5, 4 draw_block_loop_x
+            draw_block_loop_end_x:
+                li $t5, 0
+                addi $t4, $t4, 1
+                j draw_block_loop
+        draw_block_loop_end:
+            li $t4, 0
+
+        jr $ra
+        
+
+    # update_board_gravity() -> void
+    # this is a function that is called once, and repeatedly will move all board items down if the lowest row of the board is all zeroed out. It updates the game_map and projection_map accordingly
+    update_board_gravity:
+
     
     exit:
         li $v0, 10              # terminate the program gracefully
