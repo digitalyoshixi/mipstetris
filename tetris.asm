@@ -391,16 +391,16 @@
                  0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # right view
-                 0, 1, 1, 0,
-                 0, 1, 1, 0,
-                 0, 0, 0, 0,
-                 0, 0, 0, 0,
                  # bottom view
                  0, 1, 1, 0,
                  0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0
+                 # right view
+                 0, 1, 1, 0,
+                 0, 1, 1, 0,
+                 0, 0, 0, 0,
+                 0, 0, 0, 0,
     BLOCK_I:.byte # top view
                  0, 0, 0, 0,
                  1, 1, 1, 1,
@@ -411,16 +411,16 @@
                  0, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 1, 0, 0,
-                 # right view
-                 0, 0, 1, 0,
-                 0, 0, 1, 0,
-                 0, 0, 1, 0,
-                 0, 0, 1, 0,
                  # bottom view
                  0, 0, 0, 0,
                  0, 0, 0, 0,
                  1, 1, 1, 1,
                  0, 0, 0, 0
+                 # right view
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
     BLOCK_S:.byte # top view
                  0, 1, 1, 0,
                  1, 1, 0, 0,
@@ -431,16 +431,16 @@
                  1, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0,
-                 # right view
-                 0, 1, 0, 0,
-                 0, 1, 1, 0,
-                 0, 0, 1, 0,
-                 0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  0, 1, 1, 0,
                  1, 1, 0, 0,
                  0, 0, 0, 0
+                 # right view
+                 0, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 0, 0,
     BLOCK_Z:.byte # top view
                  1, 1, 0, 0,
                  0, 1, 1, 0,
@@ -451,16 +451,16 @@
                  1, 1, 0, 0,
                  1, 0, 0, 0,
                  0, 0, 0, 0,
-                 # right view
-                 0, 0, 1, 0,
-                 0, 1, 1, 0,
-                 0, 1, 0, 0,
-                 0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 0, 0,
                  0, 1, 1, 0,
                  0, 0, 0, 0
+                 # right view
+                 0, 0, 1, 0,
+                 0, 1, 1, 0,
+                 0, 1, 0, 0,
+                 0, 0, 0, 0,
     BLOCK_L:.byte # top view
                  1, 0, 0, 0,
                  1, 1, 1, 0,
@@ -471,16 +471,16 @@
                  0, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0,
-                 # right view
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 1, 1, 0, 0,
-                 0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 1, 0,
                  1, 0, 0, 0,
                  0, 0, 0, 0
+                 # right view
+                 1, 0, 0, 0,
+                 1, 0, 0, 0,
+                 1, 1, 0, 0,
+                 0, 0, 0, 0,
     BLOCK_J:.byte # top view
                  1, 0, 0, 0,
                  1, 1, 1, 0,
@@ -491,16 +491,16 @@
                  0, 1, 0, 0,
                  1, 1, 0, 0,
                  0, 0, 0, 0,
-                 # right view
-                 1, 1, 0, 0,
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
-                 0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 1, 0,
                  0, 0, 1, 0,
                  0, 0, 0, 0
+                 # right view
+                 1, 1, 0, 0,
+                 1, 0, 0, 0,
+                 1, 0, 0, 0,
+                 0, 0, 0, 0,
 
     BLOCK_T:.byte # top view
                  0, 1, 0, 0,
@@ -512,16 +512,16 @@
                  1, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0,
-                 # right view
-                 0, 1, 0, 0,
-                 0, 1, 1, 0,
-                 0, 1, 0, 0,
-                 0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 1, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0
+                 # right view
+                 0, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 1, 0, 0,
+                 0, 0, 0, 0,
     
     BLOCK_MAPPING: .word BLOCK_O, # 0
                          BLOCK_I, # 1
@@ -1139,8 +1139,101 @@
         addi $sp, $sp, -4
         sw $ra, 0($sp)
 
+        jal projection_map_copy
+        # copy the current block and draw it to the screen
+        la $t0, BLOCK_CURRENT
+        lw $t1, 0($t0) # load the current offset
+        la $t0, PROJECTION_MAP
+        add $t1, $t1, $t0
+        # push arguments onto the stack to draw
+        # push $t0 onto the stack
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        li $t2, 0
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        # draw block to projection map
+        la $t0, BLOCK_CURRENT
+        lw $t1, 0($t0) # load the current offset
+        la $t2, PROJECTION_MAP
+        add $t1, $t1, $t2
+        
+        # push the current orientation onto the stack
+        lb $t3, 6($t0) 
+        addi $sp, $sp, -4
+        sw $t3, 0($sp)
+        bne $t3, 3, move_piece_rotate_set_case_1
+        li $t3, -1 # set to -1, so that it adds to 0 later
+        move_piece_rotate_set_case_1:
+        addi $t3, $t3, 1
+        sb $t3, 6($t0) # store this value onto to change the orientation
+        
+        lb $t2, 5($t0) # load the block color
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        jal check_collisions
+        
+        # pop from the stack
+        lw $t0, 0($sp)
+        addi $sp, $sp, 4
+        # check if we have a collision
+        bne $t0, 0, move_piece_rotate_yes_collision
+        
+        move_piece_rotate_no_collision:
+            # if not, then lets update the screen and position of everything
+            # lets pop from stack to restore the previously saved orientation
+            la $t0, BLOCK_CURRENT
+            lw $t1, 0($sp)
+            addi $sp, $sp, 4
+            sb $t1, 6($t0)
+            
+            # lets update screen
+            lw $t1, 0($t0)
+            la $t2, GAME_VOID
+            add $t1, $t1, $t2
+            li $t2, 0
+            # we draw the current block to black
+            addi $sp, $sp, -4
+            sw $t1, 0($sp)
+            addi $sp, $sp, -4
+            sw $t2, 0($sp)
+            jal draw_block
+            jal draw_game
+            # lets change the orientation now
+            la $t0, BLOCK_CURRENT
+            lw $t1, 0($t0)
+            lb $t2, 6($t0)
+            bne $t2, 3, move_piece_rotate_set_case_2
+            li $t2, -1 # set to -1, so that it adds to 0 later
+            move_piece_rotate_set_case_2:
+            addi $t2, $t2, 1
+            sb $t2, 6($t0)
+            
+            la $t2, GAME_VOID
+            add $t1, $t1, $t2
+            lb $t2, 5($t0)
+            addi $sp, $sp, -4
+            sw $t1, 0($sp)
+            addi $sp, $sp, -4
+            sw $t2, 0($sp)
+            # draw the current block to the screen now
+            jal draw_block
+            jal draw_game
+            j move_piece_rotate_end
+            
+        move_piece_rotate_yes_collision:
+            # lets undo our previous damage
+            lw $t1, 0($sp)
+            addi $sp, $sp, 4
+            la $t0, BLOCK_CURRENT
+            sb $t1, 6($t0)
+
         move_piece_rotate_end:
-            # pop from the stack
+            # pop the RA
             lw $t0, 0($sp)
             addi $sp, $sp, 4
             jr $t0
