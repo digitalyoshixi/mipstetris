@@ -1021,7 +1021,7 @@
         addi $sp, $sp, 4
 
         # check if collisions are none
-        bne $t0, 0, update_block_gravity_end
+        bne $t0, 0, update_block_gravity_collision
         # if they are equal, update the offest value in the structure and then update game aswell
         # overdraw the current block with black
         la $t0, BLOCK_CURRENT
@@ -1050,13 +1050,20 @@
         addi $sp, $sp, -4
         sw $t2, 0($sp)
         jal draw_block
+        j update_block_gravity_end
         
-
+        update_block_gravity_collision:
+            jal add_block
+            
+    
         update_block_gravity_end:
+            
             # pop from the stack to return
             lw $t0, 0($sp)
             addi $sp, $sp, 4
             jr $t0
+
+            
         
     # draw_block(BASE_ADDR, COLOR) -> void
     draw_block:
