@@ -626,7 +626,7 @@
                 jal move_piece_left
                 j game_loop_check_state
             game_loop_check_input_S_pressed:
-                addi $s1, $s1, 2 # increase clock speed
+                addi $s1, $s1, 8 # increase clock speed
                 j game_loop_check_state
             game_loop_check_input_D_pressed:
                 jal move_piece_right
@@ -1135,8 +1135,85 @@
         jr $ra
 
     move_piece_rotate:
-        
+        # push RA onto the stack
+        addi $sp, $sp, -4
+        sw $ra, 0($sp)
+
+        move_piece_rotate_end:
+            # pop from the stack
+            lw $t0, 0($sp)
+            addi $sp, $sp, 4
+            jr $t0
+            
     move_piece_left:
+        # push RA onto the stack
+        addi $sp, $sp, -4
+        sw $ra, 0($sp)
+
+        jal projection_map_copy
+        # copy the current block and draw it to the screen
+        la $t0, BLOCK_CURRENT
+        lw $t1, 0($t0) # load the current offset
+        la $t0, PROJECTION_MAP
+        add $t1, $t1, $t0
+        # push arguments onto the stack to draw
+        # push $t0 onto the stack
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        li $t2, 0
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        # draw block to projection map
+        la $t0, BLOCK_CURRENT
+        lw $t1, 0($t0) # load the current offset
+        la $t2, PROJECTION_MAP
+        addi $t1, $t1, -1 # adding offset 1
+        add $t1, $t1, $t2
+        lb $t2, 5($t0) # load the block color
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        jal check_collisions
+        
+        # pop from the stack
+        lw $t0, 0($sp)
+        addi $sp, $sp, 4
+        # check if we have a collision
+        bne $t0, 0, move_piece_left_end
+        # if not, then lets update the screen and position of everything
+        la $t0, BLOCK_CURRENT
+        lw $t1, 0($t0)
+        la $t2, GAME_VOID
+        add $t1, $t1, $t2
+        li $t2, 0
+        # we draw the current block to black
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        jal draw_block
+        la $t0, BLOCK_CURRENT
+        lw $t1, 0($t0)
+        addi $t1, $t1, -1 # add 1 to the offset to move right
+        sw $t1 0($t0) # save this to the address
+        la $t2, GAME_VOID
+        add $t1, $t1, $t2
+        lb $t2, 5($t0)
+        addi $sp, $sp, -4
+        sw $t1, 0($sp)
+        addi $sp, $sp, -4
+        sw $t2, 0($sp)
+        # draw the current block to the screen now
+        jal draw_block
+
+        move_piece_left_end:
+            # pop the RA
+            lw $t0, 0($sp)
+            addi $sp, $sp, 4
+            jr $t0
         
     move_piece_right:
         # push RA onto the stack
