@@ -320,47 +320,53 @@
                            0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 0x000000, 
                            0xffffff, 0xffffff, 0x000000, 0x000000, 0x000000, 0x000000, 
                            0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff
-    
+    BRICK_SEMI_BLACK: .word 0x606060, 0x606060, 0x606060, 0x606060, 0x606060, 0x404040,
+                              0x606060, 0x505050, 0x505050, 0x505050, 0x505050, 0x404040,
+                              0x606060, 0x505050, 0x404040, 0x404040, 0x303030, 0x404040,
+                              0x606060, 0x505050, 0x404040, 0x404040, 0x303030, 0x404040,
+                              0x606060, 0x303030, 0x303030, 0x303030, 0x303030, 0x404040,
+                              0x404040, 0x404040, 0x404040, 0x404040, 0x404040, 0x404040
     # Brick mapping array
     BRICK_MAPPING: .word BRICK_BLACK, # 0
-                         BRICK_WHITE, # 1
-                         BRICK_GRAY, # 2
-                         BRICK_RED, # 3
-                         BRICK_BLUE, # 4
-                         BRICK_GREEN, # 5
-                         BRICK_YELLOW, # 6
-                         BRICK_ORANGE, # 7
-                         BRICK_PURPLE, # 8
-                         BRICK_PINK, # 9
-                         BRICK_CYAN, # 10 
-                         BRICK_BROWN, # 11
-                         BRICK_LIME, # 12
-                         BRICK_A, # 13
-                         BRICK_B, # 14
-                         BRICK_C, # 15
-                         BRICK_D, # 16
-                         BRICK_E, # 17
-                         BRICK_F, # 18
-                         BRICK_G, # 19
-                         BRICK_H, # 20
-                         BRICK_I, # 21
-                         BRICK_J, # 22
-                         BRICK_K, # 23
-                         BRICK_L, # 24
-                         BRICK_M, # 25
-                         BRICK_N, # 26
-                         BRICK_O, # 27
-                         BRICK_P, # 28
-                         BRICK_Q, # 29
-                         BRICK_R, # 30
-                         BRICK_S, # 31
-                         BRICK_T, # 32
-                         BRICK_U, # 33
-                         BRICK_V, # 34
-                         BRICK_W, # 35
-                         BRICK_X, # 36
-                         BRICK_Y, # 37
-                         BRICK_Z  # 38
+                         BRICK_SEMI_BLACK, # 1
+                         BRICK_WHITE, # 2
+                         BRICK_GRAY, # 3
+                         BRICK_RED, # 4
+                         BRICK_BLUE, # 5
+                         BRICK_GREEN, # 6
+                         BRICK_YELLOW, # 7
+                         BRICK_ORANGE, # 8
+                         BRICK_PURPLE, # 9
+                         BRICK_PINK, # 10
+                         BRICK_CYAN, # 11 
+                         BRICK_BROWN, # 12
+                         BRICK_LIME, # 13
+                         BRICK_A, # 14
+                         BRICK_B, # 15
+                         BRICK_C, # 16
+                         BRICK_D, # 17
+                         BRICK_E, # 18
+                         BRICK_F, # 19
+                         BRICK_G, # 20
+                         BRICK_H, # 21
+                         BRICK_I, # 22
+                         BRICK_J, # 23
+                         BRICK_K, # 24
+                         BRICK_L, # 25
+                         BRICK_M, # 26
+                         BRICK_N, # 27
+                         BRICK_O, # 28
+                         BRICK_P, # 29
+                         BRICK_Q, # 30
+                         BRICK_R, # 31
+                         BRICK_S, # 32
+                         BRICK_T, # 33
+                         BRICK_U, # 34
+                         BRICK_V, # 35
+                         BRICK_W, # 36
+                         BRICK_X, # 37
+                         BRICK_Y, # 38
+                         BRICK_Z,  # 39
 
                       
 
@@ -386,7 +392,7 @@
                  0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
+                 # right view
                  0, 1, 1, 0,
                  0, 1, 1, 0,
                  0, 0, 0, 0,
@@ -396,7 +402,7 @@
                  0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0
-                 # right view
+                 # left view
                  0, 1, 1, 0,
                  0, 1, 1, 0,
                  0, 0, 0, 0,
@@ -406,100 +412,100 @@
                  1, 1, 1, 1,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
-                 0, 1, 0, 0,
-                 0, 1, 0, 0,
-                 0, 1, 0, 0,
-                 0, 1, 0, 0,
+                 # right view
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
+                 0, 0, 1, 0,
                  # bottom view
                  0, 0, 0, 0,
                  0, 0, 0, 0,
                  1, 1, 1, 1,
                  0, 0, 0, 0
-                 # right view
-                 0, 0, 1, 0,
-                 0, 0, 1, 0,
-                 0, 0, 1, 0,
-                 0, 0, 1, 0,
+                 # left view
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
     BLOCK_S:.byte # top view
                  0, 1, 1, 0,
                  1, 1, 0, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
-                 1, 0, 0, 0,
-                 1, 1, 0, 0,
+                 # right view
                  0, 1, 0, 0,
+                 0, 1, 1, 0,
+                 0, 0, 1, 0,
                  0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  0, 1, 1, 0,
                  1, 1, 0, 0,
                  0, 0, 0, 0
-                 # right view
+                 # left view
+                 1, 0, 0, 0,
+                 1, 1, 0, 0,
                  0, 1, 0, 0,
-                 0, 1, 1, 0,
-                 0, 0, 1, 0,
                  0, 0, 0, 0,
     BLOCK_Z:.byte # top view
                  1, 1, 0, 0,
                  0, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
+                 # right view
+                 0, 0, 1, 0,
                  0, 1, 1, 0,
-                 1, 1, 0, 0,
-                 1, 0, 0, 0,
+                 0, 1, 0, 0,
                  0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 0, 0,
                  0, 1, 1, 0,
                  0, 0, 0, 0
-                 # right view
-                 0, 0, 1, 0,
+                 # left view
                  0, 1, 1, 0,
-                 0, 1, 0, 0,
+                 1, 1, 0, 0,
+                 1, 0, 0, 0,
                  0, 0, 0, 0,
     BLOCK_L:.byte # top view
                  1, 0, 0, 0,
                  1, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
+                 # right view
+                 1, 0, 0, 0,
+                 1, 0, 0, 0,
                  1, 1, 0, 0,
-                 0, 1, 0, 0,
-                 0, 1, 0, 0,
                  0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 1, 0,
                  1, 0, 0, 0,
                  0, 0, 0, 0
-                 # right view
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
+                 # left view
                  1, 1, 0, 0,
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
                  0, 0, 0, 0,
     BLOCK_J:.byte # top view
                  1, 0, 0, 0,
                  1, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
-                 0, 1, 0, 0,
-                 0, 1, 0, 0,
+                 # right view
                  1, 1, 0, 0,
+                 1, 0, 0, 0,
+                 1, 0, 0, 0,
                  0, 0, 0, 0,
                  # bottom view
                  0, 0, 0, 0,
                  1, 1, 1, 0,
                  0, 0, 1, 0,
                  0, 0, 0, 0
-                 # right view
+                 # left view
+                 0, 1, 0, 0,
+                 0, 1, 0, 0,
                  1, 1, 0, 0,
-                 1, 0, 0, 0,
-                 1, 0, 0, 0,
                  0, 0, 0, 0,
 
     BLOCK_T:.byte # top view
@@ -507,9 +513,9 @@
                  1, 1, 1, 0,
                  0, 0, 0, 0,
                  0, 0, 0, 0,
-                 # left view
+                 # right view
                  0, 1, 0, 0,
-                 1, 1, 0, 0,
+                 0, 1, 1, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0,
                  # bottom view
@@ -517,9 +523,9 @@
                  1, 1, 1, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0
-                 # right view
+                 # left view
                  0, 1, 0, 0,
-                 0, 1, 1, 0,
+                 1, 1, 0, 0,
                  0, 1, 0, 0,
                  0, 0, 0, 0,
     
@@ -530,6 +536,28 @@
                          BLOCK_L, # 4
                          BLOCK_J, # 5
                          BLOCK_T  # 6
+    
+    ORIGINAL_GAME_VOID: .byte   
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 28, 26, 32, 31,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 15, 33, 30, 30,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 20, 27, 24, 16,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                       28, 30, 17, 31, 31, 0, 0, 0, 0, 0, 0, 0,0,0,
+                       0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
+                       0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
 
 ##############################################################################
 # Mutable Data
@@ -590,8 +618,13 @@
     main:
         li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
         li $s1, 0               # initialize s1 to be the current clock of gravity
-        jal add_block
+        # setup the game objects
+        la $t0, PROJECTION_MAP
+        la $t0, GAME_VOID
+        la $t0, BLOCK_CURRENT
+        jal game_map_copy
         jal projection_map_copy
+        jal add_block
     
     game_loop:
         game_loop_check_input:
@@ -866,7 +899,7 @@
         li $a1, 11
         syscall
         move $t0, $a0
-        addi $t0, $t0, 2 # to prevent black or white color
+        addi $t0, $t0, 3 # to prevent black or white colors
         move $t6, $t0
         sb $t0, 0($t5)
         addi $t5, $t5, 1
@@ -888,7 +921,9 @@
                 add $t3, $t3, $t2
                 add $t3, $t3, $t0
                 lb $t3, 0($t3)
-                bne $t3, 0, exit # game over
+                beq $t3, 0, add_block_loop_x_ok # game over
+                bne $t3, 1, exit # game over
+                add_block_loop_x_ok:
         		# END
                 add_block_loop_x_end:
                     addi $t2, $t2, 1
@@ -943,11 +978,15 @@
                 # add the projection map byte
                 add $t8, $t7, $t5 # the current byte within the projection map
                 lb $t8 0($t8)
+                beq $t8, 1, check_collisions_loop_x_skip_add_1 # dont add 1s
                 add $t0, $t0, $t8
+                check_collisions_loop_x_skip_add_1:
                 # subtract the game map byte
                 add $t8, $t7, $t6 # the current byte within the projection map
                 lb $t8 0($t8)
+                beq $t8, 1, check_collisions_loop_x_skip_add_2 # dont sub 1s
                 sub $t0, $t0, $t8
+                check_collisions_loop_x_skip_add_2:
                 
                 addi $t2, $t2, 1
                 j check_collisions_loop_x
@@ -990,6 +1029,34 @@
             jr $ra
 
 
+    # game_map_copy() -> void
+    # function that copies all items within the original_game_map into game_map
+    game_map_copy:
+        li $t1, 0 # y
+        li $t2, 0 # x
+        game_map_copy_loop:
+            beq $t1, 16, game_map_copy_loop_end
+            game_map_copy_loop_x:
+                # copy the current byte inside game map into projection map
+                la $t0, ORIGINAL_GAME_VOID
+                la $t4, GAME_VOID
+                mul $t3, $t1, 14
+                add $t3, $t3, $t2
+                add $t0, $t3, $t0
+                add $t4, $t3, $t4
+                lb $t0, 0($t0)
+                sb $t0, 0($t4)
+        		# end
+                addi $t2, $t2, 1
+                blt $t2, 14, game_map_copy_loop_x
+            game_map_copy_loop_end_x:
+                li $t2, 0
+                addi $t1, $t1, 1
+                j game_map_copy_loop
+        game_map_copy_loop_end:
+            li $t1, 0
+            jr $ra
+
         
     # update_block_gravity() -> void
     # this is a function that checks if the current block moving downwards will affect collisions, it updates projectionmap, checks for collisions, if not then it updates game void and game layout
@@ -1006,14 +1073,14 @@
         lw $t1, 0($t0) 
         la $t0, PROJECTION_MAP
         add $t0, $t0, $t1 # add the offest
-        # get color
-        li $t3, 0
+        la $t3, ORIGINAL_GAME_VOID
+        add $t3, $t3, $t1
         # directly draw to projection map
         addi $sp, $sp, -4
         sw $t0, 0($sp)
         addi $sp, $sp, -4
         sw $t3, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         
         # draw the current block
         la $t0, BLOCK_CURRENT
@@ -1039,17 +1106,18 @@
         # check if collisions are none
         bne $t0, 0, update_block_gravity_collision
         # if they are equal, update the offest value in the structure and then update game aswell
-        # overdraw the current block with black
+        # clear the current block
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0)
-        li $t2, 0
+        la $t2, ORIGINAL_GAME_VOID
+        add $t2, $t2, $t1
         la $t0, GAME_VOID
         add $t1, $t1, $t0
         addi $sp, $sp, -4
         sw $t1, 0($sp)
         addi $sp, $sp, -4
         sw $t2, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         
         # store the new value as the next offset
         la $t0, BLOCK_CURRENT
@@ -1131,8 +1199,67 @@
                 j draw_block_loop
         draw_block_loop_end:
             li $t4, 0
-
         jr $ra
+
+
+    # draw_block_clear(BASE_ADDR, ORIGINAL_ADDR) -> void
+    draw_block_clear:
+        # pop from the stack
+        lw $t4, 0($sp)
+        addi $sp, $sp, 4
+        # pop from the stack
+        lw $t1, 0($sp)
+        addi $sp, $sp, 4
+        
+        la $t0, BLOCK_CURRENT
+        # get orientation
+        lb $t2, 4($t0)
+        la $t3, BLOCK_MAPPING
+        mul $t2, $t2, 4
+        add $t2, $t3, $t2
+        lw $t2, 0($t2)
+        # block orientation enum
+        lb $t3, 6($t0)
+        mul $t3, $t3, 16
+        add $t2, $t2, $t3
+        # t3 now stores the original address
+        move $t3, $t4
+
+        li $t4, 0 # y
+        li $t5, 0 # x
+        
+        draw_block_clear_loop:
+            beq $t4, 4, draw_block_clear_loop_end
+            draw_block_clear_loop_x:
+        		# BODY
+                mul $t6, $t4, 4
+                add $t6, $t6, $t5
+                add $t6, $t6, $t2
+                lb $t6, 0($t6)
+                beq $t6, 0, draw_block_clear_loop_x_end
+                # of not, then you are going to draw!
+                mul $t6, $t4, 14
+                add $t6, $t6, $t5
+                add $t6, $t6, $t1
+                # the original address
+                mul $t7, $t4, 14
+                add $t7, $t7, $t5
+                add $t7, $t7, $t3
+                lb $t7, 0($t7)
+                sb $t7 0($t6)
+
+                draw_block_clear_loop_x_end:
+        		    # END
+                    addi $t5, $t5, 1
+                    blt $t5, 4 draw_block_clear_loop_x
+            draw_block_clear_loop_end_x:
+                li $t5, 0
+                addi $t4, $t4, 1
+                j draw_block_clear_loop
+        draw_block_clear_loop_end:
+            li $t4, 0
+        jr $ra
+
 
     move_piece_rotate:
         # push RA onto the stack
@@ -1144,15 +1271,15 @@
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0) # load the current offset
         la $t0, PROJECTION_MAP
+        la $t2, ORIGINAL_GAME_VOID
+        add $t2, $t2, $t1
         add $t1, $t1, $t0
         # push arguments onto the stack to draw
-        # push $t0 onto the stack
         addi $sp, $sp, -4
         sw $t1, 0($sp)
-        li $t2, 0
         addi $sp, $sp, -4
         sw $t2, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         # draw block to projection map
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0) # load the current offset
@@ -1194,15 +1321,16 @@
             # lets update screen
             lw $t1, 0($t0)
             la $t2, GAME_VOID
+            la $t3, ORIGINAL_GAME_VOID
+            add $t3, $t3, $t1
             add $t1, $t1, $t2
-            li $t2, 0
-            # we draw the current block to black
+            move $t2, $t3
+            # we clear the current block
             addi $sp, $sp, -4
             sw $t1, 0($sp)
             addi $sp, $sp, -4
             sw $t2, 0($sp)
-            jal draw_block
-            jal draw_game
+            jal draw_block_clear
             # lets change the orientation now
             la $t0, BLOCK_CURRENT
             lw $t1, 0($t0)
@@ -1222,7 +1350,6 @@
             sw $t2, 0($sp)
             # draw the current block to the screen now
             jal draw_block
-            jal draw_game
             j move_piece_rotate_end
             
         move_piece_rotate_yes_collision:
@@ -1248,15 +1375,16 @@
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0) # load the current offset
         la $t0, PROJECTION_MAP
+        la $t2, ORIGINAL_GAME_VOID
+        add $t2, $t2 $t1
         add $t1, $t1, $t0
         # push arguments onto the stack to draw
         # push $t0 onto the stack
         addi $sp, $sp, -4
         sw $t1, 0($sp)
-        li $t2, 0
         addi $sp, $sp, -4
         sw $t2, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         # draw block to projection map
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0) # load the current offset
@@ -1279,15 +1407,17 @@
         # if not, then lets update the screen and position of everything
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0)
+        la $t3, ORIGINAL_GAME_VOID
+        add $t3, $t3, $t1
         la $t2, GAME_VOID
         add $t1, $t1, $t2
-        li $t2, 0
-        # we draw the current block to black
+        move $t2, $t3
+        # we clear the current block
         addi $sp, $sp, -4
         sw $t1, 0($sp)
         addi $sp, $sp, -4
         sw $t2, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0)
         addi $t1, $t1, -1 # add 1 to the offset to move right
@@ -1318,15 +1448,15 @@
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0) # load the current offset
         la $t0, PROJECTION_MAP
+        la $t2, ORIGINAL_GAME_VOID
+        add $t2, $t2, $t1
         add $t1, $t1, $t0
         # push arguments onto the stack to draw
-        # push $t0 onto the stack
         addi $sp, $sp, -4
         sw $t1, 0($sp)
-        li $t2, 0
         addi $sp, $sp, -4
         sw $t2, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         # draw block to projection map
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0) # load the current offset
@@ -1350,14 +1480,16 @@
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0)
         la $t2, GAME_VOID
+        la $t3, ORIGINAL_GAME_VOID
+        add $t3, $t3, $t1
         add $t1, $t1, $t2
-        li $t2, 0
-        # we draw the current block to black
+        move $t2, $t3
+        # we clear the current block
         addi $sp, $sp, -4
         sw $t1, 0($sp)
         addi $sp, $sp, -4
         sw $t2, 0($sp)
-        jal draw_block
+        jal draw_block_clear
         la $t0, BLOCK_CURRENT
         lw $t1, 0($t0)
         addi $t1, $t1, 1 # add 1 to the offset to move right
@@ -1377,9 +1509,6 @@
             lw $t0, 0($sp)
             addi $sp, $sp, 4
             jr $t0
-        
-        
-        
 
     # update_board_gravity() -> void
     # this is a function that is called once, and repeatedly will move all board items down if the lowest row of the board is all zeroed out. It updates the game_map and projection_map accordingly
