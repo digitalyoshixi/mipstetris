@@ -3,10 +3,27 @@ BLOCK_STRUCT:
     byte block_type_ENUM (4)
     byte brick_color_ENUM (5)
     byte block_orientation_ENUM (6)
-
 PROJECTION_MAP: 0x10011c18
 BLOCK_CURRENT: 0x10011d30
 GAME_VOID: 0x10011b00
 ORIGINAL_GAME_VOID: 0x100119e8
 
-block type 0x6 is causing issues
+# how game works
+1. we have a main, which initializes the game (add piece as current piece, setup internal representation of game matrix)
+2. our game_loop checks for each key-press first. (Z,X will start/end game) (WASD will modify the state of our piece)
+3. our game_loop will update our current block's gravity every 30ms
+4. if the WASD keys each call their own method, they are functionally similar to update_block_gravity, just that the block state is different.
+
+add_piece() -> void:
+1. override the BLOCK_CURRENT address with a new randomly generated block_struct
+2. if the current block generating address will cause a collision, then end the game
+
+update_block_gravity() -> void:
+1. moves the current block down in PROJECTION_MAP
+2. check pixel differences between projection_map and current game_map with check_collisions
+3. if no collision, then we draw directly to the screen
+4. if there is a collision, then we update_game_gravity()
+
+update_game_gravity() -> void:
+1. checks all rows in the game area
+2. if a row has 8 colors, then we move all rows down in the game
