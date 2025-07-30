@@ -2,20 +2,20 @@
 # CSCB58 Summer 2025 Assembly Final Project - UTSC
 # David Chen, 1011011593, chenda99, davyh.chen@mail.utoronto.ca
 # Bitmap Display Configuration:
-# - Unit width in pixels: 4 (update this as needed) 
-# - Unit height in pixels: 4 (update this as needed)
+# - Unit width in pixels: 1 (update this as needed) 
+# - Unit height in pixels: 1 (update this as needed)
 # - Display width in pixels: 84 (update this as needed)
 # - Display height in pixels: 96 (update this as needed)
 # - Base Address for Display: 0x10008000 ($gp)
 #
 # Which milestones have been reached in this submission?
 # (See the assignment handout for descriptions of the milestones)
-# - Milestone 1/2/3/4/5 (choose the one the applies)
+# - Milestone 3
 #
 # Which approved features have been implemented?
 # (See the assignment handout for the list of features)
 # Easy Features:
-# 1. (fill in the feature, if any)
+# 1. gravity
 # 2. (fill in the feature, if any)
 # ... (add more if necessary)
 # Hard Features:
@@ -380,9 +380,9 @@
                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-                       1, 0, 28, 30, 17, 31, 31, 0, 0, 0, 0, 0, 0, 1,
-                       1, 0, 0, 36, 0, 32, 27, 0, 28, 24, 13, 37, 0, 1,
-                       1, 0, 0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0, 1,
+                       1, 0, 29, 31, 18, 32, 32, 0, 0, 0, 0, 0, 0, 1,
+                       1, 0, 0, 37, 0, 33, 28, 0, 29, 25, 14, 38, 0, 1,
+                       1, 0, 0, 39, 0, 33, 28, 0, 30, 34, 22, 33, 0, 1,
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                        1, 12, 5, 4, 6, 7, 8, 9, 10, 11, 4, 5, 12, 1
@@ -542,46 +542,46 @@
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
                        2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
-                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 28, 26, 32, 31,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 29, 27, 33, 33,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
-                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 15, 33, 30, 30,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 16, 34, 31, 31,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
                        2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
-                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 20, 27, 24, 16,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 21, 28, 25, 17,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
                        2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
                        2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
                        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-                       28, 30, 17, 31, 31, 0, 0, 0, 0, 0, 0, 0,0,0,
-                       0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
-                       0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
+                       29, 31, 18, 32, 32, 0, 0, 0, 0, 0, 0, 0,0,0,
+                       0, 39, 0, 33, 28, 0, 30, 34, 22, 33, 0,0, 0,0,
+                       0, 36, 14, 32, 17, 0, 33, 28, 0, 26, 28, 35,18, 0,
 
 ##############################################################################
 # Mutable Data
 ##############################################################################
-    GAME_VOID: .byte   1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    GAME_LAYOUT: .byte 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 28, 26, 32, 31,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 33, 30, 30,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 20, 27, 24, 16,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-                       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                       28, 30, 17, 31, 31, 0, 0, 0, 0, 0, 0, 0,0,0,
-                       0, 38, 0, 32, 27, 0, 29, 33, 21, 32, 0,0, 0,0,
-                       0, 35, 13, 31, 16, 0, 32, 27, 0, 25, 27, 34,17, 0,
+    GAME_VOID: .byte   2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+    GAME_LAYOUT: .byte 2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 29, 27, 33, 33,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 16, 34, 31, 31,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 21, 28, 25, 17,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
+                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+                       29, 31, 18, 32, 32, 0, 0, 0, 0, 0, 0, 0,0,0,
+                       0, 39, 0, 33, 28, 0, 30, 34, 22, 33, 0,0, 0,0,
+                       0, 36, 14, 32, 17, 0, 33, 28, 0, 26, 28, 35,18, 0,
 
     PROJECTION_MAP: .byte   
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -683,6 +683,7 @@
             game_loop_game_update_gravity:
                 li $s1, 0
                 jal update_block_gravity
+                #jal update_board_gravity
                 
             game_loop_draw:
 
@@ -882,7 +883,7 @@
         sw $ra, 0($sp)
 
         la $t5, BLOCK_CURRENT
-        li $t0, 1 # 1 is the offset from this that coresponds to top-left corner of the screen
+        li $t0, 3 # 3 is the offset from this that coresponds to top-left corner of the screen
         sw $t0, 0($t5)
         addi $t5, $t5, 4
         # store the block_type_ENUM within the memory area
@@ -910,7 +911,7 @@
 
         # we want to draw this block to the screens now. lets first setup a 2d loop to check if our drawing void is 100$ clear.
         la $t0, GAME_VOID
-        addi $t0, $t0, 1 # our offset
+        addi $t0, $t0, 3 # our offset
         li $t1, 0 # y
         li $t2, 0 # x
         add_block_loop:
@@ -1138,6 +1139,7 @@
         
         update_block_gravity_collision:
             jal add_block
+            jal update_board_gravity
             
     
         update_block_gravity_end:
@@ -1513,7 +1515,101 @@
     # update_board_gravity() -> void
     # this is a function that is called once, and repeatedly will move all board items down if the lowest row of the board is all zeroed out. It updates the game_map and projection_map accordingly
     update_board_gravity:
+        # push the return address
+        addi $sp, $sp, -4
+        sw $ra, 0($sp)
+        # check for all of the blocks that are full, and then clear
+        # iterate through each row in the game_map and then check if we have a full row
+        li $t1, 0 # y
+        li $t2, 1 # x
+        update_board_gravity_loop:
+            beq $t1, 12, update_board_gravity_loop_end
+            li $t3, 0 # the counter for the number of blocks in this row
+            update_board_gravity_loop_x:
+        		# BODY
+                la $t4, GAME_LAYOUT
+                mul $t5, $t1, 14
+                add $t5, $t5, $t2
+                add $t4, $t4, $t5
+                lb $t4, 0($t4)
+                beq $t4, 0, update_board_gravity_loop_x_end
+                beq $t4, 1, update_board_gravity_loop_x_end
+                addi $t3, $t3, 1 # increment if we are a color that is non-void
+        		
+        		# END
+        		update_board_gravity_loop_end_x:
+        	        addi $t2, $t2, 1
+        	        blt $t2, 9 update_board_gravity_loop_x
+            update_board_gravity_loop_x_end:
+                li $t2, 1
+                addi $t1, $t1, 1
+                bne $t3, 8, update_board_gravity_loop
+                # clear all the previous, and then reset the indexes
+                # push the offset onto the stack as argument
+                addi $sp, $sp, -4
+                sw $t1, 0($sp)
+                jal clear_above_pieces
+                
+                li $t1, 0
+                li $t3, 0
+                j update_board_gravity_loop
+                
+        update_board_gravity_loop_end:
+            li $t1, 0
+        # return to ra
+        update_board_gravity_end:
+            lw $t0, 0($sp)
+            addi $sp, $sp, 4
+            jr $t0
 
+    # clear_above_pieces(y) -> void
+    clear_above_pieces:
+        # pop from the stack
+        lw $t0, 0($sp)
+        addi $sp, $sp, 4
+        # loop for us to move all pieces down, start at y, then progress up, making the current color equal to the color above
+        move $t1, $t0 # y
+        addi $t1, $t1, -1
+        li $t2, 1 # x
+        clear_above_pieces_loop:
+            beq $t1, 0, clear_above_pieces_loop_end # we are the highest, we can end here
+            clear_above_pieces_loop_x:
+        		# BODY
+                # load the current address
+                mul $t4, $t1, 14
+                add $t4, $t4, $t2
+                la $t3, GAME_LAYOUT
+                la $t5, ORIGINAL_GAME_VOID
+                addi $t5, $t5, 56 # 14 * 4
+                add $t5, $t5, $t4
+                lb $t5, 0($t5)
+                add $t4, $t4, $t3
+        		# load the current address, but y-1
+                add $t3, $t4, -14
+                # store the upper color into current color
+                lb $t3, 0($t3)
+                # we want to check if this current value is 0 or 1
+                beq $t3, 0, clear_above_pieces_loop_x_store_zero
+                beq $t3, 1, clear_above_pieces_loop_x_store_zero
+                sb $t3, 0($t4) # if it is not zero
+                j clear_above_pieces_loop_end_x
+                clear_above_pieces_loop_x_store_zero:
+                # make the current value equal to the value that is expected of it inside of ORIGINAL_GAME_VOID
+                sb $t5, 0($t4) # if it is zero, store whatever is inside of original game void
+                
+                
+        		# END
+        		clear_above_pieces_loop_end_x:
+        	        addi $t2, $t2, 1
+        	        blt $t2, 9 clear_above_pieces_loop_x
+            clear_above_pieces_loop_x_end:
+                li $t2, 0
+                addi $t1, $t1, -1
+                j clear_above_pieces_loop
+        clear_above_pieces_loop_end:
+            li $t1, 0
+            jr $ra
+        
     
     exit:
         li $v0, 10              # terminate the program gracefully
