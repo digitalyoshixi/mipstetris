@@ -16,12 +16,9 @@
 # (See the assignment handout for the list of features)
 # Easy Features:
 # 1. gravity
-# 2. (fill in the feature, if any)
-# ... (add more if necessary)
 # Hard Features:
-# 1. (fill in the feature, if any)
-# 2. (fill in the feature, if any)
-# ... (add more if necessary)
+# 1. full set of tetrominoes
+# 2. scores
 # How to play:
 # (Include any instructions)
 # Link to video demonstration for final submission:
@@ -326,6 +323,76 @@
                               0x606060, 0x505050, 0x404040, 0x404040, 0x303030, 0x404040,
                               0x606060, 0x303030, 0x303030, 0x303030, 0x303030, 0x404040,
                               0x404040, 0x404040, 0x404040, 0x404040, 0x404040, 0x404040
+                              
+    BRICK_0: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0x000000, 0x000000,
+                           
+    BRICK_1: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000,
+                           
+    BRICK_2: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000,
+                           
+    BRICK_3: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000,
+                           
+    BRICK_4: .word         0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 0x000000,
+                           
+    BRICK_5: .word         0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000,
+    BRICK_6: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000,
+                           
+    BRICK_7: .word         0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 0x000000,
+                           
+    BRICK_8: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000,
+                           
+    BRICK_9: .word         0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0xffffff, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 
+                           0x000000, 0x000000, 0xffffff, 0xffffff, 0x000000, 0x000000,
+    
     # Brick mapping array
     BRICK_MAPPING: .word BRICK_BLACK, # 0
                          BRICK_SEMI_BLACK, # 1
@@ -367,6 +434,16 @@
                          BRICK_X, # 37
                          BRICK_Y, # 38
                          BRICK_Z,  # 39
+                         BRICK_0,  # 40
+                         BRICK_1,  # 41
+                         BRICK_2,  # 42
+                         BRICK_3,  # 43
+                         BRICK_4,  # 44
+                         BRICK_5,  # 45
+                         BRICK_6,  # 46
+                         BRICK_7,  # 47
+                         BRICK_8,  # 48
+                         BRICK_9,  # 49
 
                       
 
@@ -618,6 +695,7 @@
     main:
         li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
         li $s1, 0               # initialize s1 to be the current clock of gravity
+        li $s2, 0              # initialize s2 to be the score of the game
         # setup the game objects
         la $t0, PROJECTION_MAP
         la $t0, GAME_VOID
@@ -625,6 +703,7 @@
         jal game_map_copy
         jal projection_map_copy
         jal add_block
+        jal set_scores
     
     game_loop:
         game_loop_check_input:
@@ -677,7 +756,7 @@
         game_loop_game:
             # 2a. Check for collisions
     	    # 2b. Update locations (paddle, ball)
-            bge $s1, 30, game_loop_game_update_gravity
+            bge $s1, 50, game_loop_game_update_gravity
             j game_loop_draw
 
             game_loop_game_update_gravity:
@@ -1549,6 +1628,9 @@
                 addi $sp, $sp, -4
                 sw $t1, 0($sp)
                 jal clear_above_pieces
+                # increment the score
+                addi $s2, $s2, 1
+                jal set_scores
                 
                 li $t1, 0
                 li $t3, 0
@@ -1609,9 +1691,53 @@
         clear_above_pieces_loop_end:
             li $t1, 0
             jr $ra
+
+    # set_scores() -> none
+    # change the game_map to the current score stored in s2
+    set_scores:
+        # copy the current score
+        move $t0, $s2
+        li $t1, 40 # thousands
+        li $t2, 40 # hundreds
+        li $t3, 40 # tens
+        li $t4, 40 # ones
+        # repeatedly modulus for 
+        set_scores_sub_thousand:
+            blt $t0, 1000, set_scores_sub_hundred
+            sub $t0, $t0, 1000
+            addi $t1, $t1, 1
+            j set_scores_sub_thousand
+        set_scores_sub_hundred:
+            blt $t0, 100, set_scores_sub_ten
+            sub $t0, $t0, 100
+            addi $t2, $t2, 1
+            j set_scores_sub_hundred
+        set_scores_sub_ten:
+            blt $t0, 10, set_scores_sub_one
+            sub $t0, $t0, 10
+            addi $t3, $t3, 1
+            j set_scores_sub_ten
+        set_scores_sub_one:
+            blt $t0, 1, set_scores_end
+            sub $t0, $t0, 1
+            addi $t4, $t4, 1
+            j set_scores_sub_one
+        set_scores_end:
+        # set these values to be into the correct area
+        la $t0, GAME_LAYOUT
+        addi $t0, $t0, 24
+        sb $t1, 0($t0)
+        addi $t0, $t0, 1
+        sb $t2, 0($t0)
+        addi $t0, $t0, 1
+        sb $t3, 0($t0)
+        addi $t0, $t0, 1
+        sb $t4, 0($t0)
+        jr $ra
         
     
     exit:
         li $v0, 10              # terminate the program gracefully
         syscall
+
 
