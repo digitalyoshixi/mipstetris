@@ -16,11 +16,15 @@
 # (See the assignment handout for the list of features)
 # Easy Features:
 # 1. gravity
+# 2. gravity speed based off score
+# 3. each tetronimo is different color
+# 4. 5 random blocks
+# 5. game over screen
 # Hard Features:
 # 1. full set of tetrominoes
 # 2. scores
 # How to play:
-# (Include any instructions)
+# 1. Open in saturn
 # Link to video demonstration for final submission:
 # - (insert YouTube / MyMedia / other URL here). Make sure we can view it!
 #
@@ -463,7 +467,41 @@
                        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
                        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                        1, 12, 5, 4, 6, 7, 8, 9, 10, 11, 4, 5, 12, 1
+                       
+    PAUSE_MENU: .byte  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       6, 6, 6, 3, 3, 4, 4, 4, 5, 5, 9, 8, 8, 8,
+                       0, 6, 0, 3, 0, 0, 4, 5, 0, 5, 9, 8, 0, 0,
+                       0, 6, 0, 3, 3, 3, 4, 5, 5, 0, 9, 8, 8, 8,
+                       0, 6, 0, 3, 0, 0, 4, 5, 5, 0, 9, 0, 0, 8,
+                       0, 6, 0, 3, 3, 3, 4, 5, 0, 5, 9, 8, 8, 8,
+                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                       1, 0, 29, 31, 18, 32, 32, 0, 0, 0, 0, 0, 0, 1,
+                       1, 0, 0, 37, 0, 33, 28, 0, 29, 25, 14, 38, 0, 1,
+                       1, 0, 0, 39, 0, 33, 28, 0, 30, 34, 22, 33, 0, 1,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+                       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                       1, 12, 5, 4, 6, 7, 8, 9, 10, 11, 4, 5, 12, 1
 
+    GAME_OVER_MENU: .byte   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                       1, 5, 5, 5, 5, 6, 6, 7, 0, 7, 8, 8, 8, 1,
+                       1, 5, 0, 0, 6, 0, 6, 7, 7, 7, 8, 0, 0, 1,
+                       1, 5, 0, 5, 5, 6, 6, 7, 0, 7, 8, 8, 8, 1,
+                       1, 5, 0, 0, 5, 6, 6, 7, 0, 7, 8, 0, 0, 1,
+                       1, 5, 5, 5, 5, 0, 6, 7, 0, 7, 8, 8, 8, 1,
+                       1, 9, 9, 9, 9, 10, 0, 10, 11, 11, 12, 12, 12, 1,
+                       1, 9, 0, 0, 9, 10, 0, 10, 11, 0, 12, 0, 12, 1,
+                       1, 9, 0, 0, 9, 10, 0, 10, 11, 11, 12, 12, 12, 1,
+                       1, 9, 0, 0, 9, 10, 0, 10, 11, 0, 12, 12, 0, 1,
+                       1, 9, 9, 9, 9, 0, 10, 0, 11, 11, 12, 0, 12, 1,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                       1, 39, 0, 33, 28, 0, 30, 34, 22, 33, 0,0, 0,1,
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+                       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                       
     BLOCK_O:.byte # top view
                  0, 1, 1, 0,
                  0, 1, 1, 0,
@@ -650,11 +688,11 @@
                        2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
                        2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
                        2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 21, 28, 25, 17,
-                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
-                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
-                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
-                       2, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0,
-                       2, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0,
+                       2, 3, 3, 3, 3, 0, 3, 3, 3, 2, 0, 0, 0, 0,
+                       2, 3, 3, 1, 3, 3, 3, 1, 3, 2, 0, 0, 0, 0,
+                       2, 3, 3, 3, 3, 3, 3, 0, 3, 2, 0, 0, 0, 0,
+                       2, 3, 3, 3, 0, 3, 3, 3, 3, 2, 0, 0, 0, 0,
+                       2, 3, 3, 3, 3, 0, 3, 3, 3, 2, 0, 0, 0, 0,
                        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
                        29, 31, 18, 32, 32, 0, 0, 0, 0, 0, 0, 0,0,0,
                        0, 39, 0, 33, 28, 0, 30, 34, 22, 33, 0,0, 0,0,
@@ -693,14 +731,14 @@
 
     # Run the Tetris game.
     main:
-        li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game
+        li $s0, 0               # initialize s0 to be menu or game variable. starts at 0 : menu, 1 : game, 2: game_over
         li $s1, 0               # initialize s1 to be the current clock of gravity
         li $s2, 0              # initialize s2 to be the score of the game
         # setup the game objects
         la $t0, PROJECTION_MAP
         la $t0, GAME_VOID
         la $t0, BLOCK_CURRENT
-        jal game_map_copy
+        #jal game_map_copy
         jal projection_map_copy
         jal add_block
         jal set_scores
@@ -727,6 +765,11 @@
             
             game_loop_check_input_X_pressed:
                 li $s0, 1 # go to game screen
+                li $s2, 0 # reset the score
+                # copy game map
+                jal game_map_copy
+                jal game_map_set_arbitrary_rows
+                jal set_scores
                 j game_loop_check_state
             game_loop_check_input_Z_pressed:
                 li $s0, 0 # go back to menu
@@ -746,11 +789,17 @@
             
         game_loop_check_state:
         beq $s0, 0, game_loop_menu
+        beq $s0, 2, game_loop_game_over
         j game_loop_game
         
         game_loop_menu:
             # check the state boolean
             jal draw_menu
+            j game_loop_end
+        
+        game_loop_game_over:
+            # check the state boolean
+            jal draw_game_over
             j game_loop_end
 
         game_loop_game:
@@ -780,7 +829,15 @@
             syscall
 
             # increment the clock counter
-            addi $s1, $s1, 1
+            move $t0, $s2
+            li $t1, 1
+            game_loop_end_sub:
+                blt $t0, 5, game_loop_end_sub_end
+                subi $t0, $t0, 5
+                addi $t1, $t1, 1
+                j game_loop_end_sub 
+            game_loop_end_sub_end:
+                add $s1, $s1, $t1
         
             #5. Go back to 1
             b game_loop
@@ -901,6 +958,64 @@
             addi $sp, $sp, 4
             jr $ra
         
+    draw_game_over:
+        li $s0, 2
+        # store the return address onto the stack
+        addi $sp, $sp, -4
+        sw $ra, 0($sp)
+        # setup loop variables
+        li $t1, 0 # y value
+        li $t2, 0 # x value
+        draw_game_over_loop:
+            beq $t1, 16, draw_game_over_loop_y_end
+            draw_game_over_loop_x:
+                beq $t2, 14, draw_game_over_loop_x_end
+
+                # push saved variables
+                addi $sp, $sp, -4
+                sw $t1, 0($sp)
+                addi $sp, $sp, -4
+                sw $t2, 0($sp)
+
+                # current brick enum
+                mul $t3, $t1, 14 # screen_width
+                mul $t5, $t2, 1
+                add $t3, $t3, $t5 # t3 = 16y + 4x
+                la $t0, GAME_OVER_MENU
+                add $t3, $t3, $t0 # t3 = ADDR + 16 * 4 * y + 4 * x
+                lb $t3, 0($t3) # t3 is the current color enum
+                # current address
+                mul $t4, $t1, 2016 # screen_width(16 usually) * 4 * brick_width * brick_height
+                mul $t5, $t2, 24 # brick width * 4
+                add $t4, $t4, $t5
+                lw $t0, ADDR_DSPL
+                addu $t4, $t4, $t0 # t3 = ADDR + 16 * 4 * y + 4 * x
+                
+                
+                addi $sp, $sp, -4
+                sw $t4, 0($sp)
+                addi $sp, $sp, -4
+                sw $t3, 0($sp)
+                jal draw_brick
+                
+				# POP the previously saved variables
+                lw $t2, 0($sp)
+                addi $sp, $sp, 4
+                lw $t1, 0($sp)
+                addi $sp, $sp, 4
+                
+                addi $t2, $t2, 1
+                j draw_game_over_loop_x
+            draw_game_over_loop_x_end:
+                li $t2, 0
+                addi $t1, $t1, 1
+                j draw_game_over_loop
+        draw_game_over_loop_y_end:
+            li $t1, 0
+            # retrieve return value from stack
+            lw $ra, 0($sp)
+            addi $sp, $sp, 4
+            jr $ra
 
     draw_brick: # draw_brick(BRICK_COLOR_ENUM, DRAW_ADDR)
         # pop the argument from the stack
@@ -976,10 +1091,10 @@
         # store the brick_type_ENUM within the memory area
         li $v0, 42
         li $a0, 0
-        li $a1, 11
+        li $a1, 10
         syscall
         move $t0, $a0
-        addi $t0, $t0, 3 # to prevent black or white colors
+        addi $t0, $t0, 4 # to prevent black or white colors
         move $t6, $t0
         sb $t0, 0($t5)
         addi $t5, $t5, 1
@@ -1002,7 +1117,7 @@
                 add $t3, $t3, $t0
                 lb $t3, 0($t3)
                 beq $t3, 0, add_block_loop_x_ok # game over
-                bne $t3, 1, exit # game over
+                bne $t3, 1, draw_game_over # game over
                 add_block_loop_x_ok:
         		# END
                 add_block_loop_x_end:
@@ -1735,7 +1850,46 @@
         sb $t4, 0($t0)
         jr $ra
         
-    
+    game_map_set_arbitrary_rows:
+        li $t1, 0 # y
+        li $t2, 0 # 6
+        game_map_set_arbitrary_rows_loop:
+            beq $t1, 6, game_map_set_arbitrary_rows_loop_end
+            # setup the random number
+            li $v0, 42
+            li $a0, 0
+            li $a1, 7
+            syscall
+            game_map_set_arbitrary_rows_loop_x:
+                la $t0, GAME_LAYOUT
+                addi $t0, $t0, 85
+                mul $t3, $t1, 14
+                add $t0, $t0, $t3
+                add $t0, $t0, $t2
+        		# BODY
+                beq $t2, $a0, game_map_set_arbitrary_rows_loop_x_set_blank
+                li $t3, 3
+                sb $t3 0($t0)
+                j game_map_set_arbitrary_rows_loop_end_x
+                game_map_set_arbitrary_rows_loop_x_set_blank:
+                la $t4, ORIGINAL_GAME_VOID
+                addi $t4, $t4, 56
+                add $t4, $t4, $t3
+                add $t4, $t4, $t2
+                lb $t3, 0($t4)
+                sb $t3 0($t0)
+        		
+        		# END
+        		game_map_set_arbitrary_rows_loop_end_x:
+        	        addi $t2, $t2, 1
+        	        blt $t2, 8 game_map_set_arbitrary_rows_loop_x
+            game_map_set_arbitrary_rows_loop_x_end:
+                li $t2, 0
+                addi $t1, $t1, 1
+                j game_map_set_arbitrary_rows_loop
+        game_map_set_arbitrary_rows_loop_end:
+            li $t1, 0
+            jr $ra
     exit:
         li $v0, 10              # terminate the program gracefully
         syscall
